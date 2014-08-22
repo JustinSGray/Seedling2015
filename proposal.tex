@@ -1,0 +1,173 @@
+\documentclass[]{report}
+
+\usepackage{authblk}
+\usepackage[margin=3cm]{geometry}
+
+\title{Coupled Aero­Structural­Propulsion Design of an Ultra­Light, Highly Flexible Aircraft}
+
+\author[1]{Justin Gray}
+\author[1]{Jeffery Chin}
+\author[2]{Kevin Reynolds}
+\author[3]{Dr. Graeme Kennedy}
+\author[4]{Dr. Juan Alonso}
+\author[4]{Dr. Todd Reichert}
+
+\affil[1]{Aerospace Engineer, NASA Glenn Research Center - LTA Branch}
+\affil[2]{Aerospace Engineer, NASA Ames Research Center - ??? Branch}
+\affil[3]{Assistant Professor, Georgia Institute of Technology, School of Aerospace Engineering}
+\affil[4]{Associate Professor, Stanford University, Department of Aeronautics and Astronautics}
+\affil[5]{Vice President of Aerodynamics, AeroVelo Inc.}
+
+\begin{document}
+
+  \maketitle
+
+  \section{Introduction}
+
+    The Fundamental Aeronautics Program has identified \textbf{Ultra Efficient Commercial Vehicles} as 
+    a key research thrust. A number of concepts have been proposed along those lines, such as 
+    the MIT D8 double­-bubble and the Boeing SUGAR­-High truss­-braced wing. These aircraft rely on 
+    very high­-aspect ratio, extremely flexible wings to help achieve very low energy consumption. Ultralight, 
+    long endurance, solar sensorcraft being proposed by companies such as General Atomics and 
+    Scaled Composites share a similar approach to minimizing energy consumption by leveraging highly 
+    flexible wings. This begs the question, \textbf{``How does aircraft design change to take full 
+    advantage of highly flexible structures?''} The Vision 2030 CFD study also highlights the 
+    design of highly flexible wings as a modeling grand challenge problem. That study specifically 
+    highlights the need for highly multidisciplinary, tightly coupled design process with high 
+    fidelity tools to address this grand challenge.
+
+    Aero­Velo, the team that won the Sikorski Human Powered Helicopter Prize in 2013 and 
+    flew the the first human powered ornithopter in 2010, is planning to build a new 
+    aircraft to attempt the Kremer Marathon Challenge; fly a human powered aircraft 26.1 
+    miles in under 1 hour. Human powered aircraft demand the absolute minimum weight and 
+    maximum energy efficiency, so they invariably possess ultralight highly flexible 
+    wings. To keep weight down structures are intentionally designed on the edge of 
+    failure. This provides an unparalleled opportunity to investigate the question, 
+    \textbf{``How can structural health monitoring technologies be used to enable lighter 
+    weight structures?''}, to address the \textbf{Real­-Time System­-Wide Safety Assurance} thrust. 
+
+    [Insert some discussion about distributed propulsion, coupled propulsion aerodynamics]
+
+    NASA has been invited to participate in the design and flight testing of this aircraft, providing 
+    a unique opportunity to develop and validate a design process for highly flexible wings. 
+    In phase one of the effort, the analysis tools and coupled design environment will be built and 
+    the detailed design marathon aircraft will be completed. In addition, sub-scale testing will be 
+    performed to validate the individual aerodynamics and structural models. In phase two of the effort
+    the aircraft will be built, tested, and flown to attempt the Kremer Marathon Challenge. Throughout 
+    the effort, data will be collected to validate the analysis tools. At the completion of the effort 
+    all the data collected, all of the models, and the final detailed design will be released under 
+    an open-source license. 
+
+  \section{Objectives and Technical Approach}
+
+    The overall objective of this work is to design, test, and fly a human powered aircraft, 
+    capable of flying 26.1 miles in under 1 hour using state-of-the-art multidisciplinary 
+    design techniques. The design will be performed with fully coupled
+    aerodynamic and structural models. 
+
+    Overall goals: 
+    \begin{itemize}
+        \item Develop a coupled aero-nonlinear-structural design method 
+        \item Generate validation data for the various tools 
+        \item Actually build, test, and fly the design
+    \end{itemize}
+
+    Phase one of the work will focus heavily on the design of the aircraft. NASA, Stanford, 
+    and the Georgia Institute of Technology will be responsible for collaboratively developing 
+    the propulsion, aerodynamic, and structural analysis models needed as well as integrating them 
+    together for perform the coupled analysis. AeroVelo will working closely with the other team members
+    to apply these models to do the conceptual, preliminary, and detailed design of the actual 
+    marathon aircraft. 
+
+    NASA Glenn's OpenMDAO Framework will serve as the integration tool for this effort. It's advanced 
+    capabilities for code coupling with support for analytic gradients will be utilized to build 
+    a design tool that integrates the high-fidelity models into a cohesive coupled design environment. 
+    Engineers at NASA Glenn will be responsible for doing all the code integration into OpenMDAO. 
+
+    Stanford's SU2 CFD tool, will be used for the aerodynamic analyses of both the wing and 
+    the propellers. SU2 has been successfully applied to the design of propeller systems 
+    and has support for actuator disk boundary conditions that will be needed to implement 
+    the coupled wing­-propeller design process. It has been demonstrated to work in the low 
+    Mach conditions that will be seen by this aircraft. It also provides adjoint derivatives 
+    which are fundamental to the application of state­-of-­the-­art gradient based design 
+    optimization methods. Researchers at Stanford will be responsible for building for developing 
+    the aerodynamic models of the wing and will collaborate with NASA Glenn on developing the 
+    propeller models. In addition they will provide support for integrating SU2 into the OpenMDAO 
+    framework. 
+
+    The structural modeling will be performed with Toolkit for Analysis and of Composite 
+    Structures (TACS). TACS has the necessary advanced capabilities such as adjoint derivatives 
+    and efficient load and displacement transfer to enable coupled aero­-structural design. It also has 
+    support for iso-geometric elements which will reduce the overall computational cost of the 
+    structural analysis. Researchers at the Georgia Institute of Technology will be responsible for 
+    building the structural models and providing support for integrating them into the OpenMDAO framework. 
+
+    AeroVelo will be responsible or the actual design and construction of the aircraft using the tools developed 
+    by the other team members. They will also be responsible for all flights associated with 
+    the marathon challenge attempt. After the attempt has been made, NASA will be given access to 
+    the aircraft to perform additional test flights to collect data. 
+
+
+  \section{Innovation}
+    The nature of the highly flexible wing on this human powered aircraft will demand the use 
+    of nonlinear structural models. A fully coupled high fidelity nonlinear structural, aerodynamic modeling method 
+    will represent a significant advancement in the state­-of-­the-­art for aero­-structural design. 
+
+    In addition, the extremely lower power levels for human powered aircraft demand a laminar over as much of 
+    the aircraft as possible. Because of the large deformations, its important to maintain laminar flow in the 
+    as-flown condition. By using the coupled aero-structural analysis we can take deformations into account in the design 
+    of the airfoils. 
+
+  \section{Work Plan}
+    \subsection{Schedule}
+    \subsection{Tasks}
+        \subsubsection{Aerodynamic Modeling (Stanford)}
+        \subsubsection{Structural Modeling (GATech)}
+        \subsubsection{Model Integration (NASA)}
+        \subsubsection{Aircraft Design (AeroVelo)}
+
+    \subsection{Qualifications}
+    \subsection{Intellectual Property Statement}
+        \begin{itemize}
+            \item All models will be open sourced
+            \item All design will be made publicly available via a detailed design report
+        \end{itemize}
+
+    \subsection{Virtual Meetings and Collaboration Plan}
+
+\section{Milestones and Deliverables}
+
+    \begin{itemize}
+        \item geometry model for the aircraft, including structural model (Glenn/AeroVelo)
+        \item geometry model for the propeller (Glenn/AeroVelo)
+        \item FEM (TACS) Model of the wing (GATech)
+        \item AeroDynamic Model of the Wing (Stanford)
+        \item Coupled Aero-Propulsive Analysis in OpenMDAO (Glenn/Stanford)
+        \item Coupled Aero-Structural Analysis in OpenMDAO (Glenn/GATech/Stanford)
+        \item Coupled Aero-Structural Optimization in OpenMDAO (Glenn/GATech/Stanford)
+        \item Conceptual Design for Marathon Airplane (Glenn/AeroVelo)
+        \item Detailed Design for Marathon Airplane (Glenn/AeroVelo)
+    \end{itemize}
+
+  \section{Resource Planning}
+    \subsection{Test Facilities}
+    \subsection{Supercomputing Resources}
+
+  \appendix
+  \section{Budget}
+    Rough cut at budget split
+    \begin{itemize}
+        \item 1 FTE Glenn - 150k 
+        \item NASA Glenn WYE Support 60k 
+        \item 1 FTE Ames - 150k 
+        \item .25 FTE Armstrong - 40k
+        \item Wind Tunnel and Structural Testing - 100k 
+        \item Stanford - 125k 
+        \item GATech - 125k
+    \end{itemize}
+
+  \section{Resumes}
+
+  \bibliography{references}
+
+\end{document}
