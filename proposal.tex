@@ -79,27 +79,34 @@
 
     The overall objective of this work is to design, test, and fly a human powered aircraft, 
     capable of flying 26.1 miles in under 1 hour using state-of-the-art multidisciplinary 
-    design techniques. The design will be performed with fully coupled
-    aerodynamic, non-linear structural, and propeller models. 
+    design optimization techniques. The design will be performed with fully coupled
+    aerodynamic, non-linear structural, and propeller models. Working in the context of 
+    a full aircraft design process, from conceptual all the way to detailed design, 
+    provides a unique opportunity to apply multidisciplinary optimization methods and validate
+    the results within a single project. 
 
-    Overall goals: 
-    \begin{itemize}
-        \item Develop a coupled aero-nonlinear-structural design method 
-        \item Generate validation data for the various tools 
-        \item Actually build, test, and fly the design
-    \end{itemize}
+    Phase one of the work will focus on the design of the aircraft. NASA Glenn Research Center, 
+    NASA Ames Research Center, Stanford, and the Georgia Institute of Technology will be responsible 
+    for collaboratively developing the propulsion, aerodynamic, and structural analysis 
+    models needed as well as integrating them together for perform the coupled analysis. AeroVelo 
+    use the models to perform the conceptual, preliminary, and detailed design of the actual marathon 
+    aircraft in very close collaboration with the other partners. 
 
-    Phase one of the work will focus heavily on the design of the aircraft. NASA, Stanford, 
-    and the Georgia Institute of Technology will be responsible for collaboratively developing 
-    the propulsion, aerodynamic, and structural analysis models needed as well as integrating them 
-    together for perform the coupled analysis. AeroVelo will working closely with the other team members
-    to apply these models to do the conceptual, preliminary, and detailed design of the actual 
-    marathon aircraft. 
+    \subsection{Model Integration (Glenn)}
 
     NASA Glenn's OpenMDAO Framework will serve as the integration tool for this effort. It's advanced 
     capabilities for code coupling with support for analytic gradients will be utilized to build 
     a design tool that integrates the high-fidelity models into a cohesive coupled design environment. 
     Engineers at NASA Glenn will be responsible for doing all the code integration into OpenMDAO. 
+
+    \begin{itemize}
+        \item N2 diagram showing proposed data flow
+        \item System level adjoint analytic gradients for large design spaces
+    \end{itemize}
+
+    
+
+    \subsection{Aerodynamic Modeling (Stanford / Ames)}
 
     Stanford's SU2 CFD tool, will be used for the aerodynamic analyses of both the wing and 
     the propellers. SU2 has been successfully applied to the design of propeller systems 
@@ -112,6 +119,25 @@
     propeller models. In addition they will provide support for integrating SU2 into the OpenMDAO 
     framework. 
 
+    \subsubsection{Propeller Analysis (Ames)}
+        \begin{itemize}
+            \item SU2 could be used here
+            \item lower fidelity tool? 
+        \end{itemize}
+
+    \subsubsection{Wing Analysis (Stanford)}
+        \begin{itemize}
+            \item Laminar Flow Airfoils
+            \item 2d vs 3d 
+        \end{itemize}
+
+    \subsubsection{Wing-Propeller Coupling (Glenn/Stanford)}
+        \begin{item}
+            \item SU2 actuator disks for coupling
+        \end{item}
+
+    \subsection{Structural Analysis (GaTech)}
+
     The structural modeling will be performed with Toolkit for Analysis and of Composite 
     Structures (TACS). TACS has the necessary advanced capabilities such as adjoint derivatives 
     and efficient load and displacement transfer to enable coupled aero­-structural design. It also has 
@@ -119,10 +145,14 @@
     structural analysis. Researchers at the Georgia Institute of Technology will be responsible for 
     building the structural models and providing support for integrating them into the OpenMDAO framework. 
 
+    \subsection{Aircraft Design (AeroVelo)}
+
     AeroVelo will be responsible or the actual design and construction of the aircraft using the tools developed 
     by the other team members. They will also be responsible for all flights associated with 
     the marathon challenge attempt. After the attempt has been made, NASA will be given access to 
     the aircraft to perform additional test flights to collect data. 
+
+    
 
 
   \section{Innovation}
