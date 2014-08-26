@@ -3,7 +3,7 @@
 \usepackage{authblk}
 %\usepackage[margin=3cm]{geometry}
 
-\title{Coupled Aero­Structural­Propulsion Design of an Ultra­Light, Highly Flexible Aircraft}
+\title{Coupled Aero­-Structural-Propulsive­ Design of an Ultra­Light, Highly Flexible Aircraft}
 
 \author[1]{Justin Gray}
 \author[1]{Jeffrey Chin}
@@ -20,7 +20,39 @@
 
 \begin{document}
 
-  \maketitle
+  %\maketitle
+
+  \vspace{4em}
+  \begin{center}
+    A proposal to the NASA ARMD Team Seedling Program: 
+    \vspace{2em}
+
+    {\Huge Coupled Aero­-Structural-Propulsive­ Design of an Ultra­Light, Highly Flexible, Human Powered Aircraft}
+
+    \vspace{2em}
+    submitted to the NASA Aeronautics Research Institute by: 
+
+    \vspace{3em}
+    [Insert Lots of Logos/Picture Here]
+    \vspace{3em}
+
+
+  \end{center}
+
+
+  \begin{tabular}{l l}
+    Principal Investigator & Justin S. Gray; NASA Glenn Research Center, Propulsion Systems Analysis Branch \\ 
+    & \\
+    Co-Investigators & Dr. Juan Alonso; Stanford University, Department of Aeronautics and Astronautics \\
+                     & Dr. Graeme Kennedy; Georgia Institute of Technology, School of Aerospace Engineering \\ 
+                     & Dr. Todd Reichert; Vice President of Aerodynamics, AeroVelo Inc. \\
+    & \\ 
+    Team Members & Cameron Robertson; Vice President of Structures, AeroVelo Inc. \\ 
+                 & Jeffrey Chin; NASA Glenn Research Center, Propulsion Systems Analysis Branch \\
+                 & Kevin Reynolds; NASA Ames Research Center, ??? Branch \\
+  \end{tabular}
+
+  \newpage
 
   \section{Introduction}
 
@@ -100,8 +132,10 @@
     Engineers at NASA Glenn will be responsible for doing all the code integration into OpenMDAO. 
 
     \begin{itemize}
-        \item N2 diagram showing proposed data flow
+        \item N2 diagram showing proposed data flow (Propeller, Wing, Structures, Mission)
         \item System level adjoint analytic gradients for large design spaces
+        \item Geometry (GeoMACH, VSP, OpenCSM)
+        \item Load and displacement transfer?? 
     \end{itemize}
 
     
@@ -121,20 +155,22 @@
 
     \subsubsection{Propeller Analysis (Ames)}
         \begin{itemize}
-            \item SU2 could be used here
-            \item lower fidelity tool? 
+            \item SU2 can be applied using the rotating reference frame features for efficient high fidelity propeller design
+            \item Lower fidelity tools may be even more efficient and could be highly accurate with good 2d airfoil data. Andrew Ning's 
+            CCBlade is a good option. 
         \end{itemize}
 
-    \subsubsection{Wing Analysis (Stanford)}
+    \subsubsection{Wing \& Fueselage Analysis (Stanford)}
         \begin{itemize}
-            \item Laminar Flow Airfoils
-            \item 2d vs 3d 
+            \item Laminar flow is a key design requirement for both the wing and the pilot farings. An inverse design approach can be employed 
+            by specifying a desired pressure distribution. 
+            \item TriPan is a lower fidelity option that also provides gradients and could possibly be employed to reduce computational cost. It might make sense to set things up so that SU2 and Tripan could be used interchangeably. 
         \end{itemize}
 
     \subsubsection{Wing-Propeller Coupling (Glenn/Stanford)}
-        \begin{item}
+        \begin{itemize}
             \item SU2 actuator disks for coupling
-        \end{item}
+        \end{itemize}
 
     \subsection{Structural Analysis (GaTech)}
 
@@ -148,53 +184,92 @@
     \subsection{Aircraft Design (AeroVelo)}
 
     AeroVelo will be responsible or the actual design and construction of the aircraft using the tools developed 
-    by the other team members. They will also be responsible for all flights associated with 
-    the marathon challenge attempt. After the attempt has been made, NASA will be given access to 
+    by the other team members. They will also be responsible for building the structural test articles and designing 
+    the structural validation tests. After the attempt has been made, NASA will be given access to 
     the aircraft to perform additional test flights to collect data. 
 
-    
+    \subsection{Wind Tunnel Testing}
+        \begin{itemize}
+            \item Expect airfoils to have a chord of about 2 feet. Flight speeds will be about 26 mph (40 feet/sec). Can we find a wind tunnel 
+            that can test an article of that size at such slow speeds? 
+            \item Another option would be to build a small test wing and fly it on a drone. Ames has the ability to rapidly prototype this kind 
+            of drone and could provide actual flight tests. I suspect this would be a lower cost solution, but could 
+            present measurement challenges. 
+        \end{itemize}
 
+    \subsection{Structural Testing}
+        \begin{itemize}
+            \item CFOSS system for structural tests?? 
+            \item What kind of measurements are necessary to validate the codes? 
+            \item What kind of measurements are necessary to validate the design? 
+        \end{itemize}
+
+    
+    \begin{figure}
+        \includegraphics[width=\textwidth]{images/vsp_concept_solid}
+    \end{figure}
 
   \section{Innovation}
     The nature of the highly flexible wing on this human powered aircraft will demand the use 
     of nonlinear structural models. A fully coupled high fidelity nonlinear structural, aerodynamic modeling method 
-    will represent a significant advancement in the state­-of-­the-­art for aero­-structural design. 
+    will represent a significant advancement in the state­-of-­the-­art for aero­-structural design. By also including 
+    propeller effects on the aerodynamics of the wing, we will be demonstrating an even larger degree of multidisciplinary 
+    coupling. 
 
-    In addition, the extremely lower power levels for human powered aircraft demand a laminar over as much of 
+    In addition, the extremely low available power levels for human powered aircraft demand laminar flow over as much of 
     the aircraft as possible. Because of the large deformations, its important to maintain laminar flow in the 
     as-flown condition. By using the coupled aero-structural analysis we can take deformations into account in the design 
     of the airfoils. 
 
-  \section{Work Plan}
-    \subsection{Schedule}
-    \subsection{Tasks}
-        \subsubsection{Aerodynamic Modeling (Stanford/NASA Ames)}
-        \subsubsection{Structural Modeling (GATech)}
-        \subsubsection{Model Integration (NASA Glenn)}
-        \subsubsection{Aircraft Design (AeroVelo)}
+    Lastly, the integration of multidisciplinary design optimization into all phases of the aircraft design process represents
+    a tremendous opportunity to learn how it can be best utilized. By combining MDO, testing, and actual flight into a single 
+    we gain the opportunity to iterate not just on the design but also on the design process itself. The ability to adjust the 
+    MDO methods to better suit the design process is a unique and highly valuable opportunity. 
 
-    \subsection{Qualifications}
-    \subsection{Intellectual Property Statement}
-        \begin{itemize}
-            \item All models will be open sourced
-            \item All design will be made publicly available via a detailed design report
-        \end{itemize}
+  
+\section{Intellectual Property Statement}
+    \begin{itemize}
+        \item All models will be open sourced
+        \item All design will be made publicly available via a detailed design report
+        \item All codes will be shared via GitHub
+    \end{itemize}
 
-    \subsection{Virtual Meetings and Collaboration Plan}
+\section{Virtual Meetings and Collaboration Plan}
+    \begin{itemize}
+        \item GitHub used to coordinate all codes and model 
+        \item GoogleHangout or other VITS System for monthly meeting
+        \item Two in person multi-day meetings
+    \end{itemize}
 
 \section{Milestones and Deliverables}
+    \subsection{Milestones}
+        \begin{itemize}
+            \item geometry model for the aircraft, including structural model (Glenn/AeroVelo) 11/30/2014
+            \item geometry model for the propeller (Glenn/AeroVelo) 11/30/2014
+            \item FEM (TACS) Model of the wing (GATech) 
+            \item Aerodynamic Model of the Wing (Stanford/Ames)
+            \item Coupled Aero-Propulsive Analysis in OpenMDAO (Glenn/Stanford)
+            \item Coupled Aero-Structural Analysis in OpenMDAO (Glenn/GATech/Stanford) 
+            \item Coupled Aero-Structural Optimization in OpenMDAO (Glenn/GATech/Stanford)
+            \item Conceptual Design for Marathon Airplane (Glenn/AeroVelo) 1/30/2015
+            \item Detailed Design for Marathon Airplane (Glenn/AeroVelo) 9/30/2015
+        \end{itemize}
 
-    \begin{itemize}
-        \item geometry model for the aircraft, including structural model (Glenn/AeroVelo)
-        \item geometry model for the propeller (Glenn/AeroVelo)
-        \item FEM (TACS) Model of the wing (GATech)
-        \item AeroDynamic Model of the Wing (Stanford/Ames)
-        \item Coupled Aero-Propulsive Analysis in OpenMDAO (Glenn/Stanford)
-        \item Coupled Aero-Structural Analysis in OpenMDAO (Glenn/GATech/Stanford)
-        \item Coupled Aero-Structural Optimization in OpenMDAO (Glenn/GATech/Stanford)
-        \item Conceptual Design for Marathon Airplane (Glenn/AeroVelo)
-        \item Detailed Design for Marathon Airplane (Glenn/AeroVelo)
-    \end{itemize}
+    \subsection{Deliverables}
+        \subsubsection{Year 1}
+            \begin{itemize}
+                \item Structural Test Articles (AeroVelo)
+                \item Aerodynamic Test Articles (AerVelo)
+                \item Aerodynamic Models (Stanford)
+                \item Structural Models (GaTech)
+                \item Final Report (All)
+            \end{itemize}
+        \subsubsection{Year 2}
+            \begin{itemize}
+                \item Additional Testing?? 
+                \item Structural Dynamic Analyses?? 
+                \item Flying Airplane??
+            \end{itemize}
 
   \section{Resource Planning}
     \subsection{Test Facilities}
@@ -203,7 +278,7 @@
   \appendix
 
   \section{Budget}
-    Rough cut at budget split
+    Maximum available funds: 750k 
     \begin{itemize}
         \item 1 FTE Glenn - 150k 
         \item NASA Glenn WYE Support 60k 
@@ -214,7 +289,7 @@
         \item GATech - 125k
     \end{itemize}
 
-  \section{Resumes}
+  \section{Resumes \& Qualifications}
 
 
   \bibliography{references}
