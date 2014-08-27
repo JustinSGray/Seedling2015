@@ -3,20 +3,6 @@
 \usepackage{authblk}
 %\usepackage[margin=3cm]{geometry}
 
-\title{Coupled Aero­-Structural-Propulsive­ Design of an Ultra­Light, Highly Flexible Aircraft}
-
-\author[1]{Justin Gray}
-\author[1]{Jeffrey Chin}
-\author[2]{Kevin Reynolds}
-\author[3]{Dr. Graeme Kennedy}
-\author[4]{Dr. Juan Alonso}
-\author[4]{Dr. Todd Reichert}
-
-\affil[1]{Aerospace Engineer, NASA Glenn Research Center - LTA Branch}
-\affil[2]{Aerospace Engineer, NASA Ames Research Center - TI Branch}
-\affil[3]{Assistant Professor, Georgia Institute of Technology, School of Aerospace Engineering}
-\affil[4]{Associate Professor, Stanford University, Department of Aeronautics and Astronautics}
-\affil[5]{Vice President of Aerodynamics, AeroVelo Inc.}
 
 \begin{document}
 
@@ -49,7 +35,7 @@
     & \\ 
     Team Members & Cameron Robertson; Vice President of Structures, AeroVelo Inc. \\ 
                  & Jeffrey Chin; NASA Glenn Research Center, Propulsion Systems Analysis Branch \\
-                 & Kevin Reynolds; NASA Ames Research Center, ??? Branch \\
+                 & Kevin Reynolds; NASA Ames Research Center, Intelligent Systems Branch \\
   \end{tabular}
 
   \newpage
@@ -69,43 +55,59 @@
     fidelity tools to address this grand challenge.
 
     Aircraft empty weight reduction is a major driving factor pushing designs toward highly flexible structures. 
-    While lower weight helps to achieve lower energy consumption, the flexibility in the structures also 
-    generates very large deflections and highly non-linear structural responses. These characteristics mean that 
+    While lower structural weight helps to achieve lower energy consumption it also tends to result in very large 
+    deflections and highly non-linear structural responses. These characteristics mean that 
     structural failure is a major design consideration.[CITATION HERE] Thus it is interesting to consider the question, 
     \textbf{``How can structural health monitoring technologies be used to enable lighter 
     weight structures?''}, to address the \textbf{Real­-Time System­-Wide Safety Assurance} thrust. 
 
-    One of the major challenges associated with designing highly flexible wings is that the as-flow configuration 
+    One of the major challenges associated with designing highly flexible wings is that the as-flown configuration 
     is dramatically different than the as-built configuration (jig shape). With modern aeroelastic techniques, 
     we can now design more conventional wings taking this into account[CITATIONS NEEDED]. However, highly flexible
     structures bring new challenges that need to be addressed. Besides the non-linear structural 
     response these wings also tend to have different load distributions from conventional wings. Many of the concepts 
-    also include a distributed propulsion aspect, with propellers spread out across the wing. The affect of the 
-    propulsion system not only on the structures, but also on aerodynamics and the overall controllability 
-    of the aircraft need to be considered. These aspects push the 
+    are electric aircraft with propellers spread out across the wing for distributed propulsion. This can have not only a 
+    structural impact, but also an aerodynamic and controllability impact as well. These aspects push the 
     limits of todays most advanced high-fidelity aeroelastic design techniques, which currently rely on linear structural 
-    models and don't account for any propulsion interactions. 
+    models, don't account for any propulsion interactions, and don't easily handle constraints on dynamic behavior. 
 
-    AeroVelo Inc. has invited NASA to participate in the design and flight testing of a new, highly flexible aircraft. 
-    Collaborating with AeroVelo will allow us to develop and validate the necessary tools and methods for a 
-    next-generation aircraft design tool. Aero Velo, the team that won the Sikorski Human Powered Helicopter Prize in 2013, 
-    is planning to build a human powered aircraft to achieve the Kremer Marathon Challenge; fly a human 
-    powered aircraft 26.1 miles in under 1 hour. Human powered aircraft share many of the same key qualities 
-    with other highly flexible aircraft. Since the only available power is that of the human pilots, minimizing 
-    energy consumption is of paramount concern. As such, they invariably possess ultralight highly flexible wings. 
-    A recent human powered aircraft, the Musculair II, employed an advanced all-composite wing structure 
-    with a stressed skin design[CITATION NEEDED]. The initial concept for AeroVelo's Marathon aircraft includes 
-    a span loaded structure with multiple pilots and multiple propellers distributed across the wing. These qualities 
-    make human powered aircraft an excellent lower cost, low risk test bed for developing advanced design methods 
-    for highly flexible structures. [Cool Picture Needed]
+    Although tools currently exist to address each one of the various modeling challenges, there is not yet a well 
+    accepted method to integrating them all into a cohesive system model and then applying that model to an actual 
+    aircraft design process. This proposal outlines a unique opportunity for NASA to fill this capability gap
+    via an aircraft design and flight testing effort done in close collaboration with AeroVelo Inc., Georgia Institute of Technology, 
+    and Stanford University. AeroVelo won the Sikorski Human Powered Helicopter Prize in 2013. Their next human powered aircraft will be 
+    build to conquer the Kremer Marathon Challenge; fly a human powered aircraft 26.1 miles in under 1 hour. 
+    They have invited a NASA led team of researchers to participate in this project. 
+
+    A human powered aircraft designed for the Kremer Marathon Challenge makes an excellent test case for the 
+    wide range of modeling and design challenges associated with highly flexible wings. 
+    The only available power is that of the humans on board. Each one can provide about the 
+    same amount of power as a cordless drill. In order to reach the speeds necessary, multiple people will be required. 
+    Figure \ref{fig:aerovelo-concept} is the initial AeroVelo concept, which includes three pilots spread across the wing
+    span with three propellers. Spreading the pilots out over the wing span yields a distributed load profile, 
+    which must be supported by a very light weight and extremely flexible structure. Weight is not the only 
+    key design consideration either. To keep aerodynamic drag low, it is critical to maintain laminar flow 
+    over as much of the wing as possible. 
+
+    \begin{figure}
+        \includegraphics[width=\textwidth]{images/vsp_concept_solid}
+        \caption{}
+        \label{fig:aerovelo-concept}
+    \end{figure}
+
+    The combination of low speed flight, very low available power, distributed propulsion, and highly 
+    flexible span-loaded structures makes this human powered aircraft an excellent analog for a wide 
+    range of high altitude, long endurance drones. Hence all of the tools and methods developed under 
+    this effort will be directly applicable to that class of aircraft. But by working with a human powered 
+    aircraft, we are able to achieve a lower cost, rapid feedback environment to develop and validate these 
+    new methods. 
 
     In phase one of this effort, the analysis tools and coupled design environment will be built and 
-    the detailed design marathon aircraft will be completed. In addition, sub-scale testing will be 
-    performed to validate the individual aerodynamics and structural models. In phase two of the effort
-    the aircraft will be built, tested, and flown to attempt the Kremer Marathon Challenge. Throughout 
-    the effort, data will be collected to validate the analysis tools. At the completion of the effort 
-    all the data collected, all of the models, and the final detailed design will be released under 
-    an open-source license.
+    the detailed design of the marathon aircraft will be completed. In addition, sub-scale testing will be 
+    performed to validate structural models and construction techniques. In phase two of the effort
+    the aircraft will be built, tested, and flown to attempt the Kremer Marathon Challenge. The aircraft will be 
+    used as a flying test bed to collect further structural and aerodynamic validation data. All the data collected, 
+    all of the models, and the final detailed design will be released publicly under an open-source license.
 
   \section{Objectives and Technical Approach}
 
@@ -224,10 +226,7 @@
             \item What kind of measurements are necessary to validate the design? 
         \end{itemize}
 
-    
-    \begin{figure}
-        \includegraphics[width=\textwidth]{images/vsp_concept_solid}
-    \end{figure}
+
 
   \section{Innovation}
     The nature of the highly flexible wing on this human powered aircraft will demand the use 
