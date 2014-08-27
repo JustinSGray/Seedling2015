@@ -126,17 +126,33 @@
 
     \subsection{Model Integration (Glenn)}
 
-    NASA Glenn's OpenMDAO Framework will serve as the integration tool for this effort. It's advanced 
-    capabilities for code coupling with support for analytic gradients will be utilized to build 
-    a design tool that integrates the high-fidelity models into a cohesive coupled design environment. 
-    Engineers at NASA Glenn will be responsible for doing all the code integration into OpenMDAO. 
+    NASA Glenn will be responsible for managing the integration of the various analyses into 
+    a single system model via the OpenMDAO framework. OpenMDAO provides advanced 
+    capabilities for high-fidelity code coupling. These capabilities will be leveraged to combine the 
+    propeller, wing aerodynamics, and structural models into a single coupled aircraft model. The aircraft 
+    model will the be used as a design tool by AeroVelo to handle the actual design of the aircarft. 
 
-    \begin{figure}
-        \includegraphics[width=\textwidt]{xdsm/overall}
+    One of the key features of OpenMDAO will be its support for computing system derivatives
+    analytically or semi-analytically, specifically using an adjoint formulation. The adjoint
+    derivatives capability is key, because the combination of high-fidelity aerodynamics and high-fidelity 
+    structural models yields a very large design space. Independent airfoils must be designed independently 
+    across the entire wing. In addition, structural thickness throughout the aircraft can all be sized independently. 
+    It is possible to have thousands or even 10's of thousands of design variables. This makes 
+
+
+    Both TACS and 
+    SU2 both provide analytic derivatives, but these need to be combined together to solve for the system level 
+    coupled derivatives. OpenMDAO provides the mechanism to do this automatically, for both forward and adjoint 
+    derivative formulations. 
+
+    with support for analytic gradients which will be essential 
+    for performing a design optimization at the system level. 
+
+    \begin{figure} \centering
+        \includegraphics[width=.75\textwidth]{xdsm/overall}
     \end{figure}
 
     \begin{itemize}
-        \item N2 diagram showing proposed data flow (Propeller, Wing, Structures, Mission)
         \item System level adjoint analytic gradients for large design spaces
         \item Geometry (GeoMACH, VSP, OpenCSM)
         \item Load and displacement transfer?? 
@@ -153,7 +169,7 @@
     Mach conditions that will be seen by this aircraft. It also provides adjoint derivatives 
     which are fundamental to the application of state­-of-­the-­art gradient based design 
     optimization methods. Researchers at Stanford will be responsible for building for developing 
-    the aerodynamic models of the wing and will collaborate with NASA Glenn on developing the 
+    the aerodynamic models of the wing and will collaborate with NASA Ames on developing the 
     propeller models. In addition they will provide support for integrating SU2 into the OpenMDAO 
     framework. 
 
