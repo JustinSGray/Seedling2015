@@ -1,7 +1,14 @@
 \documentclass[]{aiaa-tc}
 
 \usepackage{authblk}
+\usepackage{booktabs}
+
+\newcommand{\bigcell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
 %\usepackage[margin=3cm]{geometry}
+
+\bibliographystyle{aiaa}
+
 
 
 \begin{document}
@@ -72,16 +79,16 @@
     models, don't account for any propulsion interactions, and don't easily handle constraints on dynamic behavior. 
 
     Although tools currently exist to address each one of the various modeling challenges, there is not yet a well 
-    accepted method to integrating them all into a cohesive system model and then applying that model to an actual 
+    established method to integrating them all into a cohesive system model and then applying that model to an actual 
     aircraft design process. This proposal outlines a unique opportunity for NASA to fill this capability gap
     via an aircraft design and flight testing effort done in close collaboration with AeroVelo Inc., Georgia Institute of Technology, 
-    and Stanford University. AeroVelo won the Sikorski Human Powered Helicopter Prize in 2013. Their next human powered aircraft will be 
-    build to conquer the Kremer Marathon Challenge; fly a human powered aircraft 26.1 miles in under 1 hour. 
+    and Stanford University. In 2013 AeroVelo won the Sikorski Human Powered Helicopter Prize. Their next human powered aircraft will be 
+    built to conquer the Kremer Marathon Challenge; fly a human powered aircraft 26.1 miles in under 1 hour. 
     They have invited a NASA led team of researchers to participate in this project. 
 
     A human powered aircraft designed for the Kremer Marathon Challenge makes an excellent test case for the 
     wide range of modeling and design challenges associated with highly flexible wings. 
-    The only available power is that of the humans on board. Each one can provide about the 
+    The only available power is that of the humans on board, and each one can provide about the 
     same amount of power as a cordless drill. In order to reach the speeds necessary, multiple people will be required. 
     Figure \ref{fig:aerovelo-concept} is the initial AeroVelo concept, which includes three pilots spread across the wing
     span with three propellers. Spreading the pilots out over the wing span yields a distributed load profile, 
@@ -90,14 +97,15 @@
     over as much of the wing as possible. 
 
     \begin{figure}
-        \includegraphics[width=\textwidth]{images/vsp_concept_solid}
-        \caption{}
+        \centering
+        \includegraphics[width=.5\textwidth]{images/vsp_concept_solid}
+        \caption{AeroVelo concept of 3 pilot human powered aircraft for the Kermer Marathon Aircraft}
         \label{fig:aerovelo-concept}
     \end{figure}
 
     The combination of low speed flight, very low available power, distributed propulsion, and highly 
-    flexible span-loaded structures makes this human powered aircraft an excellent analog for a wide 
-    range of high altitude, long endurance drones. Hence all of the tools and methods developed under 
+    flexible span-loaded structures makes this human powered aircraft an excellent analog for 
+    high altitude, long endurance aircraft. Hence all of the tools and methods developed under 
     this effort will be directly applicable to that class of aircraft. But by working with a human powered 
     aircraft, we are able to achieve a lower cost, rapid feedback environment to develop and validate these 
     new methods. 
@@ -117,50 +125,57 @@
     aerodynamic, non-linear structural, and propeller models. Working in the context of 
     a full aircraft design process, from conceptual all the way to detailed design, 
     provides a unique opportunity to apply multidisciplinary optimization methods and validate
-    the results within a single project. 
+    the results within a vary small timeframe. 
 
     Phase one of the work will focus on the design of the aircraft. NASA Glenn Research Center, 
     NASA Ames Research Center, Stanford, and the Georgia Institute of Technology will be responsible 
     for collaboratively developing the propulsion, aerodynamic, and structural analysis 
     models needed as well as integrating them together for perform the coupled analysis. AeroVelo 
     use the models to perform the conceptual, preliminary, and detailed design of the actual marathon 
-    aircraft in very close collaboration with the other partners. 
+    aircraft in very close collaboration with the other partners. NASA Glenn Research Center, 
+    NASA Armstrong Research Center, Georgia Tech, and AeroVelo will all collaborate on a set of structural validation 
+    tests designed to validate the tool sets and construction methods needed for the aircraft. 
 
     \subsection{Model Integration (Glenn)}
 
     NASA Glenn will be responsible for managing the integration of the various analyses into 
     a single system model via the OpenMDAO framework. OpenMDAO provides advanced 
-    capabilities for high-fidelity code coupling. These capabilities will be leveraged to combine the 
+    capabilities for high-fidelity code coupling. These capabilities will be leveraged to combine the geometry,
     propeller, wing aerodynamics, and structural models into a single coupled aircraft model. The aircraft 
-    model will the be used as a design tool by AeroVelo to handle the actual design of the aircarft. 
-
-    One of the key features of OpenMDAO will be its support for computing system derivatives
-    analytically or semi-analytically, specifically using an adjoint formulation. The adjoint
-    derivatives capability is key, because the combination of high-fidelity aerodynamics and high-fidelity 
-    structural models yields a very large design space. Independent airfoils must be designed independently 
-    across the entire wing. In addition, structural thickness throughout the aircraft can all be sized independently. 
-    It is possible to have thousands or even 10's of thousands of design variables. This makes 
-
-
-    Both TACS and 
-    SU2 both provide analytic derivatives, but these need to be combined together to solve for the system level 
-    coupled derivatives. OpenMDAO provides the mechanism to do this automatically, for both forward and adjoint 
-    derivative formulations. 
-
-    with support for analytic gradients which will be essential 
-    for performing a design optimization at the system level. 
+    model will the be used as a design tool by AeroVelo to facilitate the actual design process. 
+    Figure ~\ref{fig:n2} shows details of how the multidiscplinary coupling will be set up. The aerodynamics 
+    and structures disciplines will both be implemented using high fidelity models. The propeller modeling 
+    will be accomplished with a combination of low and high fidelity models. The use of high fidelity models 
+    will pose a significant challenge to the design process. Airfoils must be designed independently along the propeller and
+    across the entire wing . In addition, material thickness throughout the structure
+    will be sized independently. The combination of aerodynamic and structural design variables 
+    can easily number in the 100's to 1000's. With such a large design space, gradient based optimization 
+    combined with adjoint analytic derivatives are the most effective tool for navigating the design space. 
 
     \begin{figure} \centering
         \includegraphics[width=.75\textwidth]{xdsm/overall}
+        \caption{Data flow for the aircraft design process, with coupling between the propeller and aerodynamics models 
+        and between the aerodynamics and structural models. }
+        \label{fig:n2}
     \end{figure}
 
-    \begin{itemize}
-        \item System level adjoint analytic gradients for large design spaces
-        \item Geometry (GeoMACH, VSP, OpenCSM)
-        \item Load and displacement transfer?? 
-    \end{itemize}
+    Because of the size of the design space, and larger number of coupled disciplines, OpenMDAO's built in support for 
+    automatic system level coupled derivatives will be key to building the aircraft level model. OpenMDAO allows for 
+    pure analytic or semi-analytic derivatives, using both forward and adjoint formulation. The effectiveness of OpenMDAO's 
+    derivatives capability has been successfully demonstrated on to two different design problems that are similar in complexity 
+    and scale to the proposed human powered aircraft design: A small satellite design and an aero-structural 
+    wind turbine design [CITATION NEEDED]. The small satellite design problem had over 25,000 design variables 
+    and over 30 disciplines. This problem demonstrated OpenMDAO's capabilities to solve problems of very large scale with adjoint 
+    derivatives. The aero-structural design of a wind turbine was a very different problem. It used a mixture of analytic and 
+    finite difference gradients with a complex system level model considering aerodynamics, structures, and economics. 
+    This problem showed that even when applying finite difference to some of the disciplines for gradients, the analytic 
+    derivative approach yielded a factor of 5 reduction in compute costs. This previous work demonstrates the 
+    value of OpenMDAO's analytic derivatives capability and highlights why it will be a central feature in the design 
+    optimization for a human powered aircraft. 
 
-    
+    By using the OpenMDAO framework, the modeling methods will be built in modular fashion that will allow a wide range of
+    different analysis tools to be used. This will help extend the applications of the work to other types of aircraft beyond the 
+    initial human powered aircraft. 
 
     \subsection{Aerodynamic Modeling (Stanford / Ames)}
 
@@ -194,7 +209,7 @@
             \item SU2 actuator disks for coupling
         \end{itemize}
 
-    \subsection{Structural Analysis (GaTech)}
+    \subsection{Structural Modeling (GaTech)}
 
     The structural modeling will be performed with Toolkit for Analysis and of Composite 
     Structures (TACS). TACS has the necessary advanced capabilities such as adjoint derivatives 
@@ -202,6 +217,21 @@
     support for iso-geometric elements which will reduce the overall computational cost of the 
     structural analysis. Researchers at the Georgia Institute of Technology will be responsible for 
     building the structural models and providing support for integrating them into the OpenMDAO framework. 
+
+    \subsection{Structural Dynamics Modeling (Glenn/AeroVelo)}
+
+    Structual dynamics are a very important design consideration for aircraft with highly flexible wings. Large spans and low mass
+    combine to make dynamic bending modes and structural response to control inputs both key constraining factors. NASA's Helios 
+    aircraft experienced a catastrophic failure related to unexpected structural dynamic response, clearly demonstrating the importance
+    of accouting for this phenomenon in these types of aircraft. 
+    However, directly modeling it with high fidelity codes is currently computationally infeasible in an optimization context. Never the less, 
+    some analysis needs to be included in the system model to account for these issues. Mark Drela's ASwing code is a lower fidelity 
+    coupled aero-structural analysis tool that can account for the non linear structural dynamics using a beam based method\cite{DrelaASWING}. This tool was specifically built for this type of application to be used in a rapid iteration design process. It  
+    will be coupled in to the overall system model. 
+
+    Although ASwing does not provide analytic derivatives, its low computational cost makes it feasible to use finite difference to 
+    get the disciplinary derivatives. These can then be combined with the other disciplines by OpenMDAO's mixed derivatives capabilities
+    to maintain the high efficiency of the overall design optimization. 
 
     \subsection{Aircraft Design (AeroVelo)}
 
@@ -228,37 +258,61 @@
 
 
 
-  \section{Innovation}
-    The nature of the highly flexible wing on this human powered aircraft will demand the use 
-    of nonlinear structural models. A fully coupled high fidelity nonlinear structural, aerodynamic modeling method 
-    will represent a significant advancement in the state­-of-­the-­art for aero­-structural design. By also including 
-    propeller effects on the aerodynamics of the wing, we will be demonstrating an even larger degree of multidisciplinary 
-    coupling. 
+  \section{Innovation \& Impact}
 
-    In addition, the extremely low available power levels for human powered aircraft demand laminar flow over as much of 
-    the aircraft as possible. Because of the large deformations, its important to maintain laminar flow in the 
-    as-flown condition. By using the coupled aero-structural analysis we can take deformations into account in the design 
-    of the airfoils. 
+    The Kremer marathon challenege was established in 1959, and has remained unmet for the last 55 years. 
+    Successful completion of work proposed here could result in could result in finally achieving this very challenging
+    aviation milestone. AeroVelo is already well know for their 2013 claiming of the Sikorski Prize with their Atlas 
+    Human Powered Helicopter. Their stated mission is ``to inspire the public and youth, tackle the impossible, and 
+    challenge conventional design by doing more with less.'' Partnering with AeroVelo for this work will bring a significant
+    amount of visibility to the results of this work and help raise awareness of the public benefit from NASA's advanced 
+    mulidisciplinary design research. 
 
-    Lastly, the integration of multidisciplinary design optimization into all phases of the aircraft design process represents
+    Additionally, the work will significantly advance state-of-the art for design methods of highly flexible wings. 
+    A fully coupled high-fidelity nonlinear structural, aerodynamic modeling method will represent a significant advancement 
+    in capability. By also including propeller effects on the aerodynamics of the wing, we will be demonstrating an even larger 
+    degree of multidisciplinary coupling. Furthermore, we'll be proving how gradient based optimization, with analytic gradients, 
+    methods can be applied to this new class of aircraft design problems. 
+
+    Lastly, the integration of multidisciplinary design optimization into an actual aircraft design process represents
     a tremendous opportunity to learn how it can be best utilized. By combining MDO, testing, and actual flight into a single 
-    we gain the opportunity to iterate not just on the design but also on the design process itself. The ability to adjust the 
-    MDO methods to better suit the design process is a unique and highly valuable opportunity. 
+    effort we gain the opportunity to iterate not just on the aircraft design but also on the design process itself. We'll be
+    able to improve the usefulness of optimization tools by tailoring them to support a traditional iterative design loop. 
+    So the work proposed here will yield a large amount of information on how to better integrate multidisciplinary methods 
+    into the aerospace community at large. 
 
   
 \section{Intellectual Property Statement}
-    \begin{itemize}
-        \item All models will be open sourced
-        \item All design will be made publicly available via a detailed design report
-        \item All codes will be shared via GitHub
-    \end{itemize}
+    All designs and models developed under this effort will be released under the Apache V2.0 Open Source License. The intention 
+    of the team is to provide the widest possible dissemination of all the knowledge and data data. The open source license helps 
+    ensure broad availability of the information to the public. 
 
-\section{Virtual Meetings and Collaboration Plan}
-    \begin{itemize}
-        \item GitHub used to coordinate all codes and model 
-        \item GoogleHangout or other VITS System for monthly meeting
-        \item Two in person multi-day meetings
-    \end{itemize}
+    A github repository will be set up to host all the information. This repository will serve as the collaboration 
+    hub for the research team during the effort as well as mechanism for public dissemination of the results. 
+
+\section{Team Structure and Management}
+    Justin Gray, from NASA Glenn Research Center, will be the principal investigator for this work. Justin will also perform 
+    project management duties, and serve as the interface to NARI for all reporting efforts. NASA Glenn will be the lead 
+    center for this effort, serving to orchestrate and organize the efforts of the other team members. 
+
+    The NASA team members come from three different NASA Centers. The other team members come from three different external 
+    organizations. Table \ref{tab:nasa-team} summarizes the team members and their responsibilities. 
+
+    \begin{table}
+        \caption{NASA team member names, centers, and responsibilities}
+        \begin{tabular}{lll}
+            \textbf{Team member}  & \textbf{Organization} & \textbf{Expertise} \\ \hline
+            Justin Gray & NASA Glenn & \bigcell{l}{Propulsion systems analysis, \\ multidisciplinary optimization} \\
+            Jeff Chin & NASA Glenn & \bigcell{l}{Propulsion systems analysis, \\ engine dynamics and controls}  \\ 
+            Kevin Reynolds & NASA Ames & \bigcell{l}{Aero-propulsive-servo-elastic aircraft design, \\ autonomous aircraft design}  \\
+            Dr. Graeme Kennedy & \bigcell{l}{Georgia Institute \\ of Technology} & ???? \\
+            Dr. Juan Alonso & Stanford & ???? \\
+            Aero Velo Team & Aero Velo Inc & \bigcell{l}{Human powered aircraft experts \\ composite structures construction}\\
+        \end{tabular}
+        \label{tab:nasa-team}
+    \end{table}
+
+
 
 \section{Milestones and Deliverables}
     \subsection{Milestones}
