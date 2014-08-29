@@ -7,6 +7,8 @@
 
 %\usepackage[margin=3cm]{geometry}
 
+\setlength\extrarowheight{5pt}
+
 \bibliographystyle{aiaa}
 
 
@@ -125,7 +127,7 @@
     aerodynamic, non-linear structural, and propeller models. Working in the context of 
     a full aircraft design process, from conceptual all the way to detailed design, 
     provides a unique opportunity to apply multidisciplinary optimization methods and validate
-    the results within a vary small timeframe. 
+    the results within a vary small time frame. 
 
     Phase one of the work will focus on the design of the aircraft. NASA Glenn Research Center, 
     NASA Ames Research Center, Stanford, and the Georgia Institute of Technology will be responsible 
@@ -143,7 +145,7 @@
     capabilities for high-fidelity code coupling. These capabilities will be leveraged to combine the geometry,
     propeller, wing aerodynamics, and structural models into a single coupled aircraft model. The aircraft 
     model will the be used as a design tool by AeroVelo to facilitate the actual design process. 
-    Figure ~\ref{fig:n2} shows details of how the multidiscplinary coupling will be set up. The aerodynamics 
+    Figure ~\ref{fig:n2} shows details of how the multidisciplinary coupling will be set up. The aerodynamics 
     and structures disciplines will both be implemented using high fidelity models. The propeller modeling 
     will be accomplished with a combination of low and high fidelity models. The use of high fidelity models 
     will pose a significant challenge to the design process. Airfoils must be designed independently along the propeller and
@@ -164,7 +166,7 @@
     pure analytic or semi-analytic derivatives, using both forward and adjoint formulation. The effectiveness of OpenMDAO's 
     derivatives capability has been successfully demonstrated on to two different design problems that are similar in complexity 
     and scale to the proposed human powered aircraft design: A small satellite design and an aero-structural 
-    wind turbine design [CITATION NEEDED]. The small satellite design problem had over 25,000 design variables 
+    wind turbine design\cite{gray2014derivatives}. The small satellite design problem had over 25,000 design variables 
     and over 30 disciplines. This problem demonstrated OpenMDAO's capabilities to solve problems of very large scale with adjoint 
     derivatives. The aero-structural design of a wind turbine was a very different problem. It used a mixture of analytic and 
     finite difference gradients with a complex system level model considering aerodynamics, structures, and economics. 
@@ -199,7 +201,7 @@
 
     \subsubsection{Wing \& Fueselage Analysis (Stanford)}
         \begin{itemize}
-            \item Laminar flow is a key design requirement for both the wing and the pilot farings. An inverse design approach can be employed 
+            \item Laminar flow is a key design requirement for both the wing and the pilot fairings. An inverse design approach can be employed 
             by specifying a desired pressure distribution. 
             \item TriPan is a lower fidelity option that also provides gradients and could possibly be employed to reduce computational cost. It might make sense to set things up so that SU2 and Tripan could be used interchangeably. 
         \end{itemize}
@@ -260,13 +262,13 @@
 
   \section{Innovation \& Impact}
 
-    The Kremer marathon challenege was established in 1959, and has remained unmet for the last 55 years. 
+    The Kremer marathon challenge was established in 1959, and has remained unmet for the last 55 years. 
     Successful completion of work proposed here could result in could result in finally achieving this very challenging
     aviation milestone. AeroVelo is already well know for their 2013 claiming of the Sikorski Prize with their Atlas 
     Human Powered Helicopter. Their stated mission is ``to inspire the public and youth, tackle the impossible, and 
     challenge conventional design by doing more with less.'' Partnering with AeroVelo for this work will bring a significant
     amount of visibility to the results of this work and help raise awareness of the public benefit from NASA's advanced 
-    mulidisciplinary design research. 
+    multidisciplinary design research. 
 
     Additionally, the work will significantly advance state-of-the art for design methods of highly flexible wings. 
     A fully coupled high-fidelity nonlinear structural, aerodynamic modeling method will represent a significant advancement 
@@ -275,11 +277,11 @@
     methods can be applied to this new class of aircraft design problems. 
 
     Lastly, the integration of multidisciplinary design optimization into an actual aircraft design process represents
-    a tremendous opportunity to learn how it can be best utilized. By combining MDO, testing, and actual flight into a single 
-    effort we gain the opportunity to iterate not just on the aircraft design but also on the design process itself. We'll be
-    able to improve the usefulness of optimization tools by tailoring them to support a traditional iterative design loop. 
-    So the work proposed here will yield a large amount of information on how to better integrate multidisciplinary methods 
-    into the aerospace community at large. 
+    a tremendous opportunity to learn how it can be used more effectively in a design context. By combining optimization, 
+    testing, and actual flight into a single effort we gain the opportunity to iterate not just on the aircraft 
+    design but also on the design process itself. We'll be able to improve the usefulness of optimization tools by 
+    tailoring them to support a traditional iterative design loop. So the work proposed here will yield a large amount 
+    of information on how to better integrate multidisciplinary methods into the aerospace community at large. 
 
   
 \section{Intellectual Property Statement}
@@ -296,22 +298,43 @@
     center for this effort, serving to orchestrate and organize the efforts of the other team members. 
 
     The NASA team members come from three different NASA Centers. The other team members come from three different external 
-    organizations. Table \ref{tab:nasa-team} summarizes the team members and their responsibilities. 
+    organizations. Table~\ref{tab:team-expertise} summarizes the team members and their expertise. 
 
-    \begin{table}
+    \begin{table}[htbp!]
         \caption{NASA team member names, centers, and responsibilities}
+        \centering
         \begin{tabular}{lll}
             \textbf{Team member}  & \textbf{Organization} & \textbf{Expertise} \\ \hline
             Justin Gray & NASA Glenn & \bigcell{l}{Propulsion systems analysis, \\ multidisciplinary optimization} \\
             Jeff Chin & NASA Glenn & \bigcell{l}{Propulsion systems analysis, \\ engine dynamics and controls}  \\ 
             Kevin Reynolds & NASA Ames & \bigcell{l}{Aero-propulsive-servo-elastic aircraft design, \\ autonomous aircraft design}  \\
-            Dr. Graeme Kennedy & \bigcell{l}{Georgia Institute \\ of Technology} & ???? \\
-            Dr. Juan Alonso & Stanford & ???? \\
+            Dr. Graeme Kennedy & \bigcell{l}{Georgia Institute \\ of Technology} & \bigcell{l}{Aerostructrual optimization, \\ composite structures} \\
+            Dr. Juan Alonso & Stanford & \bigcell{l}{Aerodynamic Shape Optimization, \\ Aircraft Design} \\
             Aero Velo Team & Aero Velo Inc & \bigcell{l}{Human powered aircraft experts \\ composite structures construction}\\
         \end{tabular}
-        \label{tab:nasa-team}
+        \label{tab:team-expertise}
     \end{table}
 
+    The work will be split up among the team members, with each team responsible for different aspects of the project. 
+    The breakdown of work is detailed in Table~\ref{tab:team-roles}
+
+    \begin{table}[htbp!]
+        \caption{NASA team member names, centers, and responsibilities}
+        \centering
+        \begin{tabular}{ll}
+            \textbf{Organization}  & \textbf{Responsibilities} \\ \hline
+            NASA Glenn & Code integration into OpenMDAO, systems analysis, project management \\
+            NASA Ames &  Propeller modeling, propeller-aerodynamic coupling \\ 
+            NASA Armstrong &  CFOSS application and testing\\
+            Stanford &  Aerodynamics modeling with SU2 \\
+            \bigcell{l}{Georgia Institute \\ of Technology}& Structural modeling with TACS \\
+            AeroVelo & Aircraft design, construction of test articles and airframe, flight testing\\
+            
+        \end{tabular}
+        \label{tab:team-roles}
+    \end{table}
+
+    \clearpage
 
 
 \section{Milestones and Deliverables}
