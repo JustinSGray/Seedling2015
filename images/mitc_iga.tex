@@ -1,0 +1,113 @@
+\documentclass{article}
+
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usetikzlibrary{arrows,calc,backgrounds,fit,matrix,positioning}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+
+\setlength\PreviewBorder{5pt}
+
+\newcommand{\mb}{\mathbf}
+
+\begin{document}
+\begin{figure}[htbp]
+  \begin{tikzpicture}[scale=1.0, x=1.0cm, y=1.0cm]
+    \sffamily
+    \tikzstyle{point}=[draw, thick, color=Red, fill=white, circle,
+    minimum size=0.15cm, inner sep=0pt]
+    \tikzstyle{vertex}=[draw, thick, color=Blue, fill=white, circle,
+    minimum size=0.15cm, inner sep=0pt]
+    
+    \matrix[row sep=0.25cm, column sep=0.25cm]{
+      \node[font=\large] (0, 0) {Element}; & 
+      \node[font=\large] (0, 0) {Knot intervals}; &
+      \node[font=\large] (0, 0) {$\epsilon_{11}$ and $\epsilon_{13}$}; & 
+      \node[font=\large] (0, 0) {$\epsilon_{12}$}; & 
+      \node[font=\large] (0, 0) {$\epsilon_{22}$ and $\epsilon_{23}$}; \\
+
+      % ------------------------------------
+      % MITCk2
+      \node[font=\large] (0, 0) {MITC4/MITCk2}; & 
+
+      % Draw the vertex locations
+      \draw[thick, color=gray] (-1, -1) rectangle (1, 1);
+      \draw (-1, -1) node[vertex] {};
+      \draw (-1, 1) node[vertex] {};
+      \draw (1, -1) node[vertex] {};
+      \draw (1, 1) node[vertex] {};
+      \draw[font=\normalsize] (-1, -1) node[below] {$\xi_{i}$};
+      \draw[font=\normalsize] (1, -1) node[below] {$\xi_{i+1}$};
+      \draw[font=\normalsize] (-1, -1) node[left] {$\eta_{j}$};
+      \draw[font=\normalsize] (-1, 1) node[left] {$\eta_{j+1}$}; &
+
+      % Draw the 11/13 interpolation
+      \draw[thick, color=gray] (-1, -1) rectangle (1, 1); 
+      \draw (0, -1) node[point] {};
+      \draw (0, 1) node[point] {}; 
+      \draw[font=\normalsize] (0, -1) node[below] {$\xi_1'$};
+      \draw[font=\normalsize] (0, -1.4) node[below] {$\xi_1' =
+        (\xi_{i+1} + \xi_{i})/2$}; &
+
+      % Draw the 12 interpolation
+      \draw[thick, color=gray] (-1, -1) rectangle (1, 1); 
+      \draw (0, 0) node[point] {}; &
+
+      % draw the 22/23 interpolation
+      \draw[thick, color=gray] (-1, -1) rectangle (1, 1); 
+      \draw (-1, 0) node[point] {};
+      \draw (1, 0) node[point] {};
+     \draw[font=\normalsize] (-1, 0) node[left] {$\eta_1'$};
+      \draw[font=\normalsize] (0, -1.4) node[below] {$\eta_1' =
+        (\eta_{j+1} + \eta_{j})/2$}; \\ 
+
+      % ------------------------------------
+      % MITCk3
+      \node[font=\large] (0, 0) {MITCk3}; & 
+
+      % Draw the vertex locations
+      \draw[thick, color=gray] (-1, -1) rectangle (1, 1);
+      \draw (-1, -1) node[vertex] {};
+      \draw (-1, 1) node[vertex] {};
+      \draw (1, -1) node[vertex] {};
+      \draw (1, 1) node[vertex] {};
+      \draw[font=\normalsize] (-1, -1) node[below] {$\xi_{i}$};
+      \draw[font=\normalsize] (1, -1) node[below] {$\xi_{i+1}$};
+      \draw[font=\normalsize] (-1, -1) node[left] {$\eta_{j}$};
+      \draw[font=\normalsize] (-1, 1) node[left] {$\eta_{j+1}$}; &
+
+      % Draw the 11/13 interpolation
+      \draw[thick, color=gray] (-1, -1) rectangle (1, 1); 
+      \draw (-1, -1) node[point] {};
+      \draw (-1, 0) node[point] {}; 
+      \draw (-1, 1) node[point] {};
+      \draw (1, -1) node[point] {}; 
+      \draw (1, 0) node[point] {};
+      \draw (1, 1) node[point] {};
+      \draw[font=\normalsize] (-1, 0) node[left] {$\eta_1'$};
+      \draw[font=\normalsize] (0, -1.4) node[below] {$\eta_1' =
+        (\eta_{j+1} + \eta_{j})/2$}; &
+
+      % Draw the 12 interpolation
+      \draw[thick, color=gray] (-1, -1) rectangle (1, 1); 
+      \draw (-1, -1) node[point] {}; 
+      \draw (-1, 1) node[point] {}; 
+      \draw (1, -1) node[point] {}; 
+      \draw (1, 1) node[point] {}; &
+
+      % draw the 22/23 interpolation
+      \draw[thick, color=gray] (-1, -1) rectangle (1, 1); 
+      \draw (-1, -1) node[point] {};
+      \draw (0, -1) node[point] {}; 
+      \draw (1, -1) node[point] {};
+      \draw (-1, 1) node[point] {}; 
+      \draw (0, 1) node[point] {};
+      \draw (1, 1) node[point] {};
+      \draw[font=\normalsize] (0, -1) node[below] {$\xi_1'$};
+      \draw[font=\normalsize] (0, -1.4) node[below] {$\xi_1' =
+        (\xi_{i+1} + \xi_{i})/2$}; \\
+    };
+  \end{tikzpicture}
+\end{figure}
+\end{document}
