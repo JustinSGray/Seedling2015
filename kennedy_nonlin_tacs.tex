@@ -36,7 +36,7 @@
 
 \begin{document}
 
-\section{Aeroelastic Modeling Capabilities}
+\section{Aeroelastic Modeling}
 
 The modeling and design of slender lightweight flexible structures for
 human and electric-powered aircraft requires specialized tools due to
@@ -69,7 +69,7 @@ for multidisciplinary analysis and design optimization of composite
 structures, with an existing load and displacement transfer scheme
 designed for efficient parallel computations.
 
-\subsection{Nonlinear structural modeling capabilities}
+\subsection{Nonlinear structural modeling}
 
 In this work, we will utilize a third-order isogeometric shell element
 for nonlinear structural analysis and design.  This element balances
@@ -112,12 +112,12 @@ compatibility with the in-plane displacements~\citep{Hughes:1989:DDF,
   Simo:1992:FFE, Fox:1992:DRF}. This formulation facilitates
 shell-shell intersections.
 
-The initial,
-undeformed shell geometry is represented in terms of the mid-surface
-vector, $\mb{r}_{0}(\mbs{\xi}) \in \mathbb{R}^{3}$, and the unit
-normal, $\mb{n}(\mbs{\xi})$, that are written in terms of the local
-shell coordinates $\mbs{\xi}$. The through-thickness coordinate is
-given by $\zeta$. The entire shell volume can be expressed as follows:
+The initial, undeformed shell geometry is represented in terms of the
+mid-surface vector, $\mb{r}_{0}(\mbs{\xi}) \in \mathbb{R}^{3}$, and
+the unit normal, $\mb{n}(\mbs{\xi})$, that are written in terms of the
+local shell coordinates $\mbs{\xi}$. The through-thickness coordinate
+is given by $\zeta$. The entire shell volume can be expressed as
+follows:
 %
 \begin{equation} 
   \mb{r}(\mbs{\xi}, \zeta) = 
@@ -171,7 +171,7 @@ Figure~\ref{fig:mitc-formulation}.  Note that the scheme for
 second-order, bi-linear b-spline surfaces degenerates to the classical
 MITC4 shell element.
 
-\subsection{Aeroelastic capabilities}
+\subsection{Aeroelastic load and displacement transfer}
 
 For this project, our team will develop a coupled aeroelastic design
 capability between TACS and $\text{SU}^2$, using existing parallel
