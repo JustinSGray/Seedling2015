@@ -83,10 +83,11 @@
     Although tools currently exist to address each one of the various modeling challenges, there is not yet a well 
     established method to integrating them all into a cohesive system model and then applying that model to an actual 
     aircraft design process. This proposal outlines a unique opportunity for NASA to fill this capability gap
-    via an aircraft design and flight testing effort done in close collaboration with AeroVelo Inc., Georgia Institute of Technology, 
-    and Stanford University. In 2013 AeroVelo won the Sikorski Human Powered Helicopter Prize. Their next human powered aircraft will be 
-    built to conquer the Kremer Marathon Challenge; fly a human powered aircraft 26.1 miles in under 1 hour. 
-    They have invited a NASA led team of researchers to participate in this project. 
+    via an aircraft design and flight testing effort done in close collaboration with AeroVelo Inc., Georgia 
+    Institute of Technology, and Stanford University. In 2013 AeroVelo won the Sikorski Human Powered Helicopter Prize. 
+    Their next human powered aircraft will be built to conquer the Kremer Marathon Challenge; fly a 
+    human powered aircraft 26.1 miles in under 1 hour. They have invited a NASA led team of researchers to 
+    participate in this project. 
 
     A human powered aircraft designed for the Kremer Marathon Challenge makes an excellent test case for the 
     wide range of modeling and design challenges associated with highly flexible wings. 
@@ -110,7 +111,8 @@
     high altitude, long endurance aircraft. Hence all of the tools and methods developed under 
     this effort will be directly applicable to that class of aircraft. But by working with a human powered 
     aircraft, we are able to achieve a lower cost, rapid feedback environment to develop and validate these 
-    new methods. 
+    new methods. Then later efforts can quickly applye the new methods to other types of aircraft like the D8
+    or HALE concepts. 
 
     In phase one of this effort, the analysis tools and coupled design environment will be built and 
     the detailed design of the marathon aircraft will be completed. In addition, sub-scale testing will be 
@@ -132,10 +134,10 @@
     Phase one of the work will focus on the design of the aircraft. NASA Glenn Research Center, 
     NASA Ames Research Center, Stanford, and the Georgia Institute of Technology will be responsible 
     for collaboratively developing the propulsion, aerodynamic, and structural analysis 
-    models needed as well as integrating them together for perform the coupled analysis. AeroVelo 
+    models needed as well as integrating them together for perform the coupled analysis. AeroVelo will
     use the models to perform the conceptual, preliminary, and detailed design of the actual marathon 
     aircraft in very close collaboration with the other partners. NASA Glenn Research Center, 
-    NASA Armstrong Research Center, Georgia Tech, and AeroVelo will all collaborate on a set of structural validation 
+    The Georgia Institute of Technology, and AeroVelo will all collaborate on a set of structural validation 
     tests designed to validate the tool sets and construction methods needed for the aircraft. 
 
     \subsection{Model Integration (Glenn)}
@@ -297,8 +299,7 @@
     project management duties, and serve as the interface to NARI for all reporting efforts. NASA Glenn will be the lead 
     center for this effort, serving to orchestrate and organize the efforts of the other team members. 
 
-    The NASA team members come from three different NASA Centers. The other team members come from three different external 
-    organizations. Table~\ref{tab:team-expertise} summarizes the team members and their expertise. 
+    The NASA team members come from three different NASA Centers: Glenn, Ames, and Armstrong. The other team members come from three different external organizations. Table~\ref{tab:team-expertise} summarizes the team members and their expertise. 
 
     \begin{table}[htbp!]
         \caption{NASA team member names, centers, and responsibilities}
@@ -308,6 +309,7 @@
             Justin Gray & NASA Glenn & \bigcell{l}{Propulsion systems analysis, \\ multidisciplinary optimization} \\
             Jeff Chin & NASA Glenn & \bigcell{l}{Propulsion systems analysis, \\ engine dynamics and controls}  \\ 
             Kevin Reynolds & NASA Ames & \bigcell{l}{Aero-propulsive-servo-elastic aircraft design, \\ autonomous aircraft design}  \\
+            Allen Parker &  NASA Armstrong  & CFOSS installation and usage \\
             Dr. Graeme Kennedy & \bigcell{l}{Georgia Institute \\ of Technology} & \bigcell{l}{Aerostructrual optimization, \\ composite structures} \\
             Dr. Juan Alonso & Stanford & \bigcell{l}{Aerodynamic Shape Optimization, \\ Aircraft Design} \\
             Aero Velo Team & Aero Velo Inc & \bigcell{l}{Human powered aircraft experts \\ composite structures construction}\\
@@ -355,21 +357,31 @@
         \subsubsection{Year 1}
             \begin{itemize}
                 \item Structural Test Articles (AeroVelo)
-                \item Aerodynamic Test Articles (AerVelo)
                 \item Aerodynamic Models (Stanford)
                 \item Structural Models (GaTech)
+                \item Integrated System Model in OpenMDAO (NASA Glenn/Ames)
                 \item Final Report (All)
             \end{itemize}
         \subsubsection{Year 2}
             \begin{itemize}
-                \item Additional Testing?? 
-                \item Structural Dynamic Analyses?? 
-                \item Flying Airplane??
+                \item Structural dynamics models 
+                \item Flight test plan
+                \item Test aircraft
             \end{itemize}
+
+  \section{Cost Sharing}
+    AeroVelo Inc. will be primarily responsible for all aircraft design and testing efforts during this effort. 
+    They have committed their own funds for this project, without any additional NASA funding being delivered. This makes
+    This makes their whole involvement in the effort self funded and highlights the high value they see 
+    in collaborating with NASA on their work. Their estimated expenses for the first year of the project are 200,000 
+    dollars which will cover two engineers salaries, as well as all expenses for the construction of the necessary 
+    structural test models. 
 
   \section{Resource Planning}
     \subsection{Test Facilities}
     \subsection{Supercomputing Resources}
+        The project will require some access to the NAS Cluster, to be able to run the coupled high fidelity simulations. 
+        100,000 Standard Billing Units will be needed in Phase 1 of the effort. 
 
   \appendix
 
