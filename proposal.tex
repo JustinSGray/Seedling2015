@@ -74,6 +74,8 @@
     Team Members & Cameron Robertson; Vice President of Structures, AeroVelo Inc. \\ 
                  & Jeffrey Chin; NASA Glenn Research Center, Propulsion Systems Analysis Branch \\
                  & Kevin Reynolds; NASA Ames Research Center, Intelligent Systems Branch \\
+                 & Kevin Reynolds; NASA Ames Research Center, Intelligent Systems Branch \\
+                 & Anthony Piazza; NASA Armstrong Flight Research Center \\
   \end{tabular}
 
   \newpage
@@ -485,11 +487,29 @@ step.
     %     \end{itemize}
 
     \subsection{Structural Testing \& Model Validation}
-        \begin{itemize}
-            \item CFOSS system for structural tests?? 
-            \item What kind of measurements are necessary to validate the codes? 
-            \item What kind of measurements are necessary to validate the design? 
-        \end{itemize}
+        
+        Highly flexible wing structures, which yield very large deflections, demand the use of non-linear structural models. 
+        Application of these non-linear models in a aero-eleastic optimization context is one of the major innovations of this 
+        work. Due to it's novel application, these models are also one of the largest sources of uncertainty in the analysis models. 
+        To help mitigate this uncertainty, it is necessary to perform some destructive structural testing of of structures undergoing large 
+        deflections. This testing will be performed on test articles built by AeroVelo Inc. Data will be collected using 
+        NASA Armstrong's Compact Fiber Optic Sensing System (CFOSS). CFOSS offers several important features that will make the 
+        data collected of high value for tool validation purposes and also make it uniquely qualified to be applied to human powered vehicles. 
+
+        Firstly, CFOSS offers a very high resolution for measurements. This will be key in collecting high quality data for the validation 
+        of the TACS predictions. In the types of ultra-light structures that are built for these aircraft, the structural failures 
+        are driven by local buckling as seen in Fig.~\ref{fig:spar-failure}. By using the high resolution of the CFOSS system, the 
+        data will capture the detailed loads across the entire structure which can then be matched up with the predicted 
+        results and the models can be adapted to more accurately account for the buckling failures. 
+
+        \begin{figure}
+            \includegraphics[width=.5\textwidth]{images/spar_failure}
+            \caption{A failed spar failure caused by local bucking from the AeroVelo Atlas human powered helicopter. }
+            \label{fig:spar-failure}
+        \end{figure}
+
+        \subsection{Testing Plan}
+
 
 
 
@@ -540,31 +560,12 @@ step.
             Justin Gray & NASA Glenn & \bigcell{l}{Propulsion systems analysis, \\ multidisciplinary optimization} \\
             Jeff Chin & NASA Glenn & \bigcell{l}{Propulsion systems analysis, \\ engine dynamics and controls}  \\ 
             Kevin Reynolds & NASA Ames & \bigcell{l}{Aero-propulsive-servo-elastic aircraft design, \\ autonomous aircraft design}  \\
-            Allen Parker &  NASA Armstrong  & CFOSS installation and usage \\
+            Anthony Piazza &  NASA Armstrong  & CFOSS installation and data collection \\
             Dr. Graeme Kennedy & \bigcell{l}{Georgia Institute \\ of Technology} & \bigcell{l}{Aerostructrual optimization, \\ composite structures} \\
             Dr. Juan Alonso & Stanford & \bigcell{l}{Aerodynamic Shape Optimization, \\ Aircraft Design} \\
             Aero Velo Team & Aero Velo Inc & \bigcell{l}{Human powered aircraft experts \\ composite structures construction}\\
         \end{tabular}
         \label{tab:team-expertise}
-    \end{table}
-
-    The work will be split up among the team members, with each team responsible for different aspects of the project. 
-    The breakdown of work is detailed in Table~\ref{tab:team-roles}
-
-    \begin{table}[htbp!]
-        \caption{NASA team member names, centers, and responsibilities}
-        \centering
-        \begin{tabular}{ll}
-            \textbf{Organization}  & \textbf{Responsibilities} \\ \hline
-            NASA Glenn & Code integration into OpenMDAO, systems analysis, project management \\
-            NASA Ames &  Propeller modeling, propeller-aerodynamic coupling \\ 
-            NASA Armstrong &  CFOSS application and testing\\
-            Stanford &  Aerodynamics modeling with SU2 \\
-            \bigcell{l}{Georgia Institute \\ of Technology}& Structural modeling with TACS \\
-            AeroVelo & Aircraft design, construction of test articles and airframe, flight testing\\
-            
-        \end{tabular}
-        \label{tab:team-roles}
     \end{table}
 
     \clearpage
