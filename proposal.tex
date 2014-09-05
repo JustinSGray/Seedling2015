@@ -132,7 +132,7 @@
     key design consideration either. To keep aerodynamic drag low, it is critical to maintain laminar flow 
     over as much of the wing as possible. 
 
-    \begin{figure}
+    \begin{figure}[!hbp]
         \centering
         \includegraphics[width=.5\textwidth]{images/vsp_concept_solid}
         \caption{AeroVelo concept of 3 pilot human powered aircraft for the Kermer Marathon Aircraft}
@@ -497,12 +497,14 @@ step.
         data collected of high value for tool validation purposes and also make it uniquely qualified to be applied to human powered vehicles. 
 
         Firstly, CFOSS offers a very high resolution for measurements. This will be key in collecting high quality data for the validation 
-        of the TACS predictions. In the types of ultra-light structures that are built for these aircraft, the structural failures 
-        are driven by local buckling as seen in Fig.~\ref{fig:spar-failure}. By using the high resolution of the CFOSS system, the 
-        data will capture the detailed loads across the entire structure which can then be matched up with the predicted 
-        results and the models can be adapted to more accurately account for the buckling failures. 
+        of the TACS predictions. In the types of ultra-light structures that are built for these aircraft, the structural failure can 
+        occur anywhere along the length of the wing spar, as seen in Fig.~\ref{fig:spar-failure}. By using the 
+        high resolution of the CFOSS system, the data will capture the detailed loads across the entire structure 
+        which can then be matched up with the predicted results and the models can be adapted to more accurately 
+        predict the response of the structural models.
 
-        \begin{figure}
+        \begin{figure}[!hbt]
+            \centering
             \includegraphics[width=.5\textwidth]{images/spar_failure}
             \caption{A failed spar failure caused by local bucking from the AeroVelo Atlas human powered helicopter. }
             \label{fig:spar-failure}
@@ -510,6 +512,39 @@ step.
 
         \subsection{Testing Plan}
 
+        AeroVelo will produce a 10 meter long spar to be used as a test article for the structural testing. The testing has 
+        two distinct goals. Firstly, it will generate validation data to confirm the predictions 
+        of the non-linear structural modeling methods being used in TACS. Secondly, it will provide AeroVelo with a mechanism 
+        to validate the as-built strength of their spars. The as-built strength of the spar is a function of the materials used 
+        in its construction as well as the construction methods themselves. To keep weight to its absolute minimum, 
+        its important to have an accurate estimate for strength to avoid the need for excessive structural margins. 
+
+        \begin{figure}
+            \includegraphics[.5\textwidth]{images/structural_test}
+            \caption{Todd Reichert and Cameron Roberston testing a wing spar for the Atlas Human Powered Helicopter using a
+            jig to get distributed loading. }
+            \label{fig:spar-load-test}
+        \end{figure}
+
+        In previous efforts, AeroVelo has used a distributed dead weight approach for loading their spars during testing. 
+        Figure~\ref{fig:spar-load-test} shows the setup AeroVelo used to get a distributed load applied to the spar. 
+        For this effort, a different loading mechanism is needed. Using a dead load applies a purely downward force to the 
+        structure, which is a reasonable approximation when the deflections are small. However, the aerodynamic loads will 
+        be applied normal to the structure in reality, and for large deflections the surface normal vector will not be 
+        close to vertical anymore. 
+
+        \begin{figure}
+            [INSERT CARTOON HERE]
+            \caption{Structural testing with loads applied normal to the surface is important for large deflections}
+        \end{figure}
+
+        So the testing will be conducted using a loading mechanism that applies appropriate loads in the normal direction
+        as the spar deflects. Data will be collected, using CFOSS, for pure bending and bend-twist loads for a series of different 
+        load levels. Non-destructive and destructive tests will be performed to provide the largest amount of data possible. 
+
+
+
+    
 
 
 
@@ -613,7 +648,7 @@ step.
     AeroVelo Inc. will be primarily responsible for all aircraft design and testing during this effort. 
     They have committed their own funds for this project, without any additional NASA funding being delivered.
     This makes their involvement in the effort completely self funded and highlights the high value they see 
-    in collaborating with NASA on this effort work. Their estimated expenses for the first year of the project are \$250,000 
+    in collaborating with NASA on this effort work. Their estimated expenses for the first year of the project are \$200,000 
     which will cover two engineers salaries, as well as all expenses for the construction of the necessary 
     structural test articles.
 
