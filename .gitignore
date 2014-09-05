@@ -4,3 +4,5 @@
 /proposal.dvi
 /proposal.aux
 *.DS_Store
+/proposal.bbl
+/proposal.blg
