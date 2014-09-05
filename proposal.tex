@@ -9,6 +9,8 @@
 \usepackage{pdflscape}
 \usepackage{appendix}
 \usepackage{pdfpages}
+\usepackage{tikz}
+\usepackage{geometry}
 
 
 \newcommand{\bigcell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
@@ -25,6 +27,16 @@
 \newcommand{\ds}{\displaystyle}
 \newcommand{\mb}{\mathbf}
 \newcommand{\mbs}{\boldsymbol}
+
+
+\cfoot{\footnotesize\normalfont
+       \thepage\ of \pageref{LastPage}\\
+        \ifx\aiaa@papernumber\@empty
+          \relax
+        \else
+          \if@aiaa@handcarry Paper \aiaa@papernumber\fi
+        \fi
+       }
 
 
 \begin{document}
@@ -615,7 +627,7 @@ step.
   \appendix
 
   \clearpage
-  \begin{center}\appendixpage\end{center}
+  \centerline{\huge{\textbf{Appendix}}}
 
 
   \section{Budget}
@@ -630,10 +642,13 @@ step.
         \item GATech - 125k
     \end{itemize}
 
+  \clearpage
   \section{Resumes \& Qualifications}
 
-  \includepdf[pages={1}]{resumes/justin_resume.pdf}
-  \includepdf[pages={1}]{resumes/Chin_SeedlingResume9_3_14.pdf}
-
+    \clearpage
+    \newgeometry{left=0cm,bottom=0cm,top=2cm,right=0cm}
+    \includepdf[scale=1.2, pages={1}]{resumes/justin_resume.pdf}
+    \includepdf[pages={1}]{resumes/Chin_SeedlingResume9_3_14.pdf}
+    \restoregeometry
 
 \end{document}
