@@ -7,6 +7,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{pdflscape}
+\usepackage{appendix}
 
 \newcommand{\bigcell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
 
@@ -435,20 +436,20 @@ step.
 
 \subsubsection{Illustration of the IGA modeling capabilities}
 
-    \subsection{Structural Dynamics Modeling (Glenn/AeroVelo)}
+    % \subsection{Structural Dynamics Modeling (Glenn/AeroVelo)}
 
-    Structual dynamics are a very important design consideration for aircraft with highly flexible wings. Large spans and low mass
-    combine to make dynamic bending modes and structural response to control inputs both key constraining factors. NASA's Helios 
-    aircraft experienced a catastrophic failure related to unexpected structural dynamic response, clearly demonstrating the importance
-    of accouting for this phenomenon in these types of aircraft. 
-    However, directly modeling it with high fidelity codes is currently computationally infeasible in an optimization context. Never the less, 
-    some analysis needs to be included in the system model to account for these issues. Mark Drela's ASwing code is a lower fidelity 
-    coupled aero-structural analysis tool that can account for the non linear structural dynamics using a beam based method\cite{DrelaASWING}. This tool was specifically built for this type of application to be used in a rapid iteration design process. It  
-    will be coupled in to the overall system model. 
+    % Structual dynamics are a very important design consideration for aircraft with highly flexible wings. Large spans and low mass
+    % combine to make dynamic bending modes and structural response to control inputs both key constraining factors. NASA's Helios 
+    % aircraft experienced a catastrophic failure related to unexpected structural dynamic response, clearly demonstrating the importance
+    % of accouting for this phenomenon in these types of aircraft. 
+    % However, directly modeling it with high fidelity codes is currently computationally infeasible in an optimization context. Never the less, 
+    % some analysis needs to be included in the system model to account for these issues. Mark Drela's ASwing code is a lower fidelity 
+    % coupled aero-structural analysis tool that can account for the non linear structural dynamics using a beam based method\cite{DrelaASWING}. This tool was specifically built for this type of application to be used in a rapid iteration design process. It  
+    % will be coupled in to the overall system model. 
 
-    Although ASwing does not provide analytic derivatives, its low computational cost makes it feasible to use finite difference to 
-    get the disciplinary derivatives. These can then be combined with the other disciplines by OpenMDAO's mixed derivatives capabilities
-    to maintain the high efficiency of the overall design optimization. 
+    % Although ASwing does not provide analytic derivatives, its low computational cost makes it feasible to use finite difference to 
+    % get the disciplinary derivatives. These can then be combined with the other disciplines by OpenMDAO's mixed derivatives capabilities
+    % to maintain the high efficiency of the overall design optimization. 
 
     \subsection{Aircraft Design (AeroVelo)}
 
@@ -457,16 +458,16 @@ step.
     the structural validation tests. After the attempt has been made, NASA will be given access to 
     the aircraft to perform additional test flights to collect data. 
 
-    \subsection{Wind Tunnel Testing}
-        \begin{itemize}
-            \item Expect airfoils to have a chord of about 2 feet. Flight speeds will be about 26 mph (40 feet/sec). Can we find a wind tunnel 
-            that can test an article of that size at such slow speeds? 
-            \item Another option would be to build a small test wing and fly it on a drone. Ames has the ability to rapidly prototype this kind 
-            of drone and could provide actual flight tests. I suspect this would be a lower cost solution, but could 
-            present measurement challenges. 
-        \end{itemize}
+    % \subsection{Wind Tunnel Testing}
+    %     \begin{itemize}
+    %         \item Expect airfoils to have a chord of about 2 feet. Flight speeds will be about 26 mph (40 feet/sec). Can we find a wind tunnel 
+    %         that can test an article of that size at such slow speeds? 
+    %         \item Another option would be to build a small test wing and fly it on a drone. Ames has the ability to rapidly prototype this kind 
+    %         of drone and could provide actual flight tests. I suspect this would be a lower cost solution, but could 
+    %         present measurement challenges. 
+    %     \end{itemize}
 
-    \subsection{Structural Testing}
+    \subsection{Structural Testing \& Model Validation}
         \begin{itemize}
             \item CFOSS system for structural tests?? 
             \item What kind of measurements are necessary to validate the codes? 
@@ -592,7 +593,7 @@ step.
 
   \section{Cost Sharing}
     AeroVelo Inc. will be primarily responsible for all aircraft design and testing efforts during this effort. 
-    They have committed their own funds for this project, without any additional NASA funding being delivered. This makes
+    They have committed their own funds for this project, without any additional NASA funding being delivered.
     This makes their whole involvement in the effort self funded and highlights the high value they see 
     in collaborating with NASA on their work. Their estimated expenses for the first year of the project are 200,000 
     dollars which will cover two engineers salaries, as well as all expenses for the construction of the necessary 
@@ -601,10 +602,16 @@ step.
   \section{Resource Planning}
     \subsection{Test Facilities}
     \subsection{Supercomputing Resources}
-        The project will require some access to the NAS Cluster, to be able to run the coupled high fidelity simulations. 
+        The project will require access to the NAS Cluster, to be able to run the coupled high fidelity simulations. 
         100,000 Standard Billing Units will be needed in Phase 1 of the effort. 
 
+  \bibliography{references}
+
   \appendix
+
+  \clearpage
+  \begin{center}\appendixpage\end{center}
+
 
   \section{Budget}
     Maximum available funds: 750k 
@@ -621,6 +628,6 @@ step.
   \section{Resumes \& Qualifications}
 
 
-  \bibliography{references}
+
 
 \end{document}
