@@ -5,3 +5,5 @@
 /proposal.aux
 /proposal.out
 *.DS_Store
+/proposal.bbl
+/proposal.blg
