@@ -6,7 +6,10 @@
 \usepackage{subfig}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{pdflscape}
 \usepackage{appendix}
+\usepackage{pdfpages}
+
 
 \newcommand{\bigcell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
 
@@ -39,7 +42,10 @@
     submitted to the NASA Aeronautics Research Institute by: 
 
     \vspace{3em}
-    [Insert Lots of Logos/Picture Here]
+    \begin{figure}
+        \centering
+        \includegraphics[width=.5\textwidth]{images/seedling_logos}
+    \end{figure}
     \vspace{3em}
 
 
@@ -552,11 +558,13 @@ step.
     \clearpage
 
 
+\begin{landscape}
 \section{Milestones and Deliverables}
     \subsection{Schedule}
         \begin{figure}
-            \includegraphics[width=\textwidth]{images/Gantt_v1}
+            \includegraphics[width=\hsize]{images/Gantt_v2}
         \end{figure}
+ \end{landscape}
     \subsection{Milestones}
         \begin{table}\begin{tabular}{lcl}
             \textbf{Milestone} & \textbf{Due Date} & \textbf{Exit Criteria} \\ \hline
@@ -586,6 +594,7 @@ step.
                 \item Flight test plan
                 \item Test aircraft
             \end{itemize}
+
 
   \section{Cost Sharing}
     AeroVelo Inc. will be primarily responsible for all aircraft design and testing efforts during this effort. 
@@ -623,7 +632,8 @@ step.
 
   \section{Resumes \& Qualifications}
 
-
+  \includepdf[pages={1}]{resumes/justin_resume.pdf}
+  \includepdf[pages={1}]{resumes/Chin_SeedlingResume9_3_14.pdf}
 
 
 \end{document}
