@@ -148,11 +148,15 @@
 
     In phase one of this effort, the analysis tools and coupled design environment will be built and 
     the detailed design of the marathon aircraft will be completed. In addition, sub-scale testing will be 
-    performed to validate structural models and construction techniques. In phase two of the effort
-    the aircraft will be built, tested, and flown to attempt the Kremer Marathon Challenge. The aircraft will be 
-    used as a flying test bed to collect further structural and aerodynamic validation data. All the data collected, 
+    performed to validate structural models and construction techniques. The phase two effort will consist of two 
+    parallel efforts. First the aircraft will be built, tested, and flown to attempt the Kremer Marathon Challenge. 
+    The aircraft will be used as a flying test bed to collect further structural and aerodynamic validation data as well 
+    as additional data on flight handling characteristics and overall performance. All the data collected, 
     models generated, and the final detailed design are intended to be released publicly under an open-source license
-    upon completion of the challenge.
+    upon completion of the challenge. Second, additional research will be conducted to extend the design tools to 
+    for the design of a HALE atmospheric satellite aircraft. This additional design effort leverage all of the experience 
+    gained from working on the human powered vehicle and move the work further toward an actual commercial application. 
+
 
   \section{Objectives and Technical Approach}
 
@@ -173,7 +177,7 @@
     The Georgia Institute of Technology, and AeroVelo will all collaborate on a set of structural validation 
     tests designed to validate the tool sets and construction methods needed for the aircraft. 
 
-    \subsection{Model Integration (Glenn)}
+    \subsection{Model Integration}
 
     NASA Glenn will be responsible for managing the integration of the various analyses into 
     a single system model via the OpenMDAO framework. OpenMDAO provides advanced 
@@ -214,7 +218,7 @@
     different analysis tools to be used. This will help extend the applications of the work to other types of aircraft beyond the 
     initial human powered aircraft. 
 
-    \subsection{Aerodynamic Modeling (Stanford / Ames)}
+    \subsection{Aerodynamic Modeling}
 
     Stanford's SU2 CFD tool, will be used for the aerodynamic analyses of both the wing and 
     the propellers. SU2 has been successfully applied to the design of propeller systems 
@@ -227,7 +231,7 @@
     propeller models. In addition they will provide support for integrating SU2 into the OpenMDAO 
     framework. 
 
-    \subsubsection{Propeller Analysis (Ames)}
+    \subsubsection{Propeller Analysis}
         \begin{itemize}
             \item SU2 can be applied using the rotating reference frame features for efficient high fidelity propeller design
             \item Lower fidelity tools may be even more efficient and could be highly accurate with good 2d airfoil data. Andrew Ning's 
@@ -246,7 +250,7 @@
             \item SU2 actuator disks for coupling
         \end{itemize}
 
-        \subsection{Structural Modeling (GaTech)}
+        \subsection{Structural Modeling}
 
 The modeling and design of slender lightweight flexible structures for
 human and electric-powered aircraft requires specialized tools due to
@@ -497,16 +501,17 @@ step.
         There are two relevant construction methods that have been applied on these types of aircraft in the past. The MIT Deadalus, 
         AeroVelo Atlas, and the AeroVironment HELIOS both used a somewhat traditional spar-rib construction method. The spars are 
         made from long carbon-fiber tubes, and the ribs are made from and balsa wood or composites. The skin is built from a
-        combination of thin mylar and foam. The foam is used on the upper surface leading edge to help retain the correct airfoil 
+        combination of thin mylar and foam. The foam is used on the upper surface and leading edge to help retain the correct airfoil 
         shape necessary to achieve laminar flow. In his construction method, the spar carries almost all of the bending and torsional 
-        loads for the wing, and the skin carries essentially no loads at all. Figure~\ref{fig:traditional-wing-construction} shows
-        the Atlas rotor blades including the spars, ribs, skin, and foam leading edges. 
+        loads for the wing, and the skin does not contribute any significant stiffness. Figure~\ref{fig:traditional-wing-construction} shows
+        details the Deadalus style wing construction method. 
 
         \begin{figure}[!hbt]
                 \centering
-                \includegraphics[width=.75\textwidth]{images/wing-construction}
-                \caption{Rotor blades from the Atlas human powered helicopter using a spar and rib based construction 
-                method}
+                % \includegraphics[width=.75\textwidth]{images/wing-construction}
+                \includegraphics[width=.9\textwidth]{images/traditional-wing-construction}
+                \caption{Left: A cross sectional diagram of the Daedalus wing construction method, highlighting the leading edge foam sheeting
+                and round carbon fiber main spar. Right: Actual Atlas helicopter rotor blade using this construction method.}
                 \label{fig:traditional-wing-construction}
         \end{figure}
 
@@ -610,10 +615,9 @@ step.
 
         \begin{figure}[!htbp]
             \centering
-            \includegraphics[width=.7\textwidth]{images/follower_force}
-            \caption{Loads applied normal to the surface is important for large deflections}
+            \includegraphics[width=.75\textwidth]{images/follower_force}
+            \caption{The upper diagram shows loads applied in a single direction, as demonstrated in Fig.~\ref{fig:spar-load-test}. However, loads applied normal to the surface, as shown in the lower diagram, are important for accurate testing of structures with large deflections.}
             \label{fig:follower-force}
-			\caption{The upper diagram shows loads applied in a single direction, as demonstrated in Figure~\ref{fig:spar-load-test}.However, loads applied normal to the surface, as shown in the lower diagram, are important for large deflections.}
         \end{figure}
 
         So the testing will be conducted using a loading mechanism that applies appropriate loads in the normal direction
