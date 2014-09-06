@@ -48,7 +48,7 @@
     A proposal to the NASA ARMD Team Seedling Program: 
     \vspace{2em}
 
-    {\Huge Coupled Aero­-Structural-Propulsive­ Design of an Ultra­Light, Highly Flexible, Human Powered Aircraft}
+    {\Huge Coupled Aero­-Propulsive-Elastic Design of an Ultra­Light, Highly Flexible, Human Powered Aircraft}
 
     \vspace{2em}
     submitted to the NASA Aeronautics Research Institute by: 
@@ -73,7 +73,6 @@
     & \\ 
     Team Members & Cameron Robertson; Vice President of Structures, AeroVelo Inc. \\ 
                  & Jeffrey Chin; NASA Glenn Research Center, Propulsion Systems Analysis Branch \\
-                 & Kevin Reynolds; NASA Ames Research Center, Intelligent Systems Branch \\
                  & Kevin Reynolds; NASA Ames Research Center, Intelligent Systems Branch \\
                  & Anthony Piazza; NASA Armstrong Flight Research Center \\
   \end{tabular}
@@ -111,7 +110,7 @@
     are electric aircraft with propellers spread out across the wing for distributed propulsion. This can have not only a 
     structural impact, but also an aerodynamic and controllability impact as well. These aspects push the 
     limits of todays most advanced high-fidelity aeroelastic design techniques, which currently rely on linear structural 
-    models, don't account for any propulsion interactions, and don't easily handle constraints on dynamic behavior. 
+    models, and don't account for any propulsion interactions, nor do they easily handle constraints on dynamic behavior. 
 
     Although tools currently exist to address each one of the various modeling challenges, there is not yet a well 
     established method to integrating them all into a cohesive system model and then applying that model to an actual 
@@ -142,9 +141,9 @@
     The combination of low speed flight, very low available power, distributed propulsion, and highly 
     flexible span-loaded structures makes this human powered aircraft an excellent analog for 
     high altitude, long endurance aircraft. Hence all of the tools and methods developed under 
-    this effort will be directly applicable to that class of aircraft. But by working with a human powered 
+    this effort will be directly applicable to that class of aircraft. By working with a human powered 
     aircraft, we are able to achieve a lower cost, rapid feedback environment to develop and validate these 
-    new methods. Then later efforts can quickly applye the new methods to other types of aircraft like the D8
+    new methods. Then later efforts can quickly apply the new methods to other types of aircraft like the D8
     or HALE concepts. 
 
     In phase one of this effort, the analysis tools and coupled design environment will be built and 
@@ -152,7 +151,8 @@
     performed to validate structural models and construction techniques. In phase two of the effort
     the aircraft will be built, tested, and flown to attempt the Kremer Marathon Challenge. The aircraft will be 
     used as a flying test bed to collect further structural and aerodynamic validation data. All the data collected, 
-    all of the models, and the final detailed design will be released publicly under an open-source license.
+    models generated, and the final detailed design are intended to be released publicly under an open-source license
+    upon completion of the challenge.
 
   \section{Objectives and Technical Approach}
 
@@ -167,7 +167,7 @@
     Phase one of the work will focus on the design of the aircraft. NASA Glenn Research Center, 
     NASA Ames Research Center, Stanford, and the Georgia Institute of Technology will be responsible 
     for collaboratively developing the propulsion, aerodynamic, and structural analysis 
-    models needed as well as integrating them together for perform the coupled analysis. AeroVelo will
+    models needed as well as integrating them together to perform the coupled analysis. AeroVelo will
     use the models to perform the conceptual, preliminary, and detailed design of the actual marathon 
     aircraft in very close collaboration with the other partners. NASA Glenn Research Center, 
     The Georgia Institute of Technology, and AeroVelo will all collaborate on a set of structural validation 
@@ -184,7 +184,7 @@
     and structures disciplines will both be implemented using high fidelity models. The propeller modeling 
     will be accomplished with a combination of low and high fidelity models. The use of high fidelity models 
     will pose a significant challenge to the design process. Airfoils must be designed independently along the propeller and
-    across the entire wing . In addition, material thickness throughout the structure
+    across the entire wing. In addition, material thickness throughout the structure
     will be sized independently. The combination of aerodynamic and structural design variables 
     can easily number in the 100's to 1000's. With such a large design space, gradient based optimization 
     combined with adjoint analytic derivatives are the most effective tool for navigating the design space. 
@@ -547,7 +547,7 @@ step.
     \subsection{Structural Testing \& Model Validation}
         
         Highly flexible wing structures, which yield very large deflections, demand the use of non-linear structural models. 
-        Application of these non-linear models in a aero-eleastic optimization context is one of the major innovations of this 
+        Application of these non-linear models in a aero-propulsive-elastic optimization context is one of the major innovations of this 
         work. Due to it's novel application, these models are also one of the largest sources of uncertainty in the analysis models. 
         To help mitigate this uncertainty, it is necessary to perform some destructive structural testing of of structures undergoing large 
         deflections. This testing will be performed on test articles built by AeroVelo Inc. Data will be collected using 
@@ -610,9 +610,14 @@ step.
 
         \begin{figure}[!htbp]
             \centering
+<<<<<<< HEAD
             \includegraphics[width=.7\textwidth]{images/follower_force}
             \caption{Loads applied normal to the surface is important for large deflections}
             \label{fig:follower-force}
+=======
+            \includegraphics[width=.5\textwidth]{images/follower_force}
+            \caption{The upper diagram shows loads applied in a single direction, as demonstrated in Figure~\ref{fig:spar-load-test}.However, loads applied normal to the surface, as shown in the lower diagram, are important for large deflections.}
+>>>>>>> 58c875994d7ddebe9280a0fcdc2e27c53e8b465f
         \end{figure}
 
         So the testing will be conducted using a loading mechanism that applies appropriate loads in the normal direction
