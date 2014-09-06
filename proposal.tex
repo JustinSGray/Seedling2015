@@ -133,7 +133,7 @@
 
     \begin{figure}[!hbt]
         \centering
-        \includegraphics[width=.25\textwidth]{images/vsp_concept_solid}
+        \includegraphics[width=.5\textwidth]{images/vsp_concept_solid}
         \caption{AeroVelo concept of 3 pilot human powered aircraft for the Kermer Marathon Aircraft}
         \label{fig:aerovelo-concept}
     \end{figure}
@@ -470,21 +470,79 @@ step.
     % get the disciplinary derivatives. These can then be combined with the other disciplines by OpenMDAO's mixed derivatives capabilities
     % to maintain the high efficiency of the overall design optimization. 
 
-    \subsection{Aircraft Design (AeroVelo)}
+    \subsection{Aircraft Design}
 
-    AeroVelo will be responsible or the actual design and construction of the aircraft using the tools developed 
-    by the other team members. They will also be responsible for building the structural test articles and designing 
-    the structural validation tests. After the attempt has been made, NASA will be given access to 
-    the aircraft to perform additional test flights to collect data. 
+        AeroVelo will be responsible for the actual design of the human powered aircraft. They will complete a conceptual design 
+        phase early on in the effort to determine the major configuration level aspects of the aircraft such as wing span, pilot pod
+        locations, propeller placement, and wing construction methods. At the end of this design phase, a summary report detailing
+        the analyses done and the design decisions made from the data generated will be written. 
 
-    % \subsection{Wind Tunnel Testing}
-    %     \begin{itemize}
-    %         \item Expect airfoils to have a chord of about 2 feet. Flight speeds will be about 26 mph (40 feet/sec). Can we find a wind tunnel 
-    %         that can test an article of that size at such slow speeds? 
-    %         \item Another option would be to build a small test wing and fly it on a drone. Ames has the ability to rapidly prototype this kind 
-    %         of drone and could provide actual flight tests. I suspect this would be a lower cost solution, but could 
-    %         present measurement challenges. 
-    %     \end{itemize}
+        \subsubsection{Aircraft Configuration}
+
+        The Keremer Marathon Challenge demands a very high speed for a human powered aircraft over an extended period of time. To reach the 
+        required speeds, the power aircraft will require on the order of 1 KiloWatt of continuous power. This power output is not 
+        sustainable by a single pilot for the length of time needed to complete the challenge, so AeroVelo has proposed using multiple 
+        pilots to lower the per-pilot power requirements. Their current concept uses 3 pilots, located in separate pods spaced out 
+        span-wise along the wing. This lowers the per-pilot power requirements considerably, and also introduces a unique loading profile 
+        for the wings. 
+
+        In order to complete the conceptual design phase, AeroVelo will rely heavily on existing low-fidelity analyses for aerodynamic and 
+        structural modeling. They will build these models into an initial system model of the aircraft inside the OpenMDAO framework. 
+        This initial model will guide the conceptual design process and also provide a baseline to integrate the higher fidelity models into. 
+        OpenMDAO provides a key benefit for this work, because it allows the team to build a flexible and modular system model where fidelity can 
+        be increased as better models are made available. 
+
+        \subsubsection{Construction Methods}
+
+        There are two relevant construction methods that have been applied on these types of aircraft in the past. The MIT Deadalus, 
+        AeroVelo Atlas, and the AeroVironment HELIOS both used a somewhat traditional spar-rib construction method. The spars are 
+        made from long carbon-fiber tubes, and the ribs are made from and balsa wood or composites. The skin is built from a
+        combination of thin mylar and foam. The foam is used on the upper surface leading edge to help retain the correct airfoil 
+        shape necessary to achieve laminar flow. In his construction method, the spar carries almost all of the bending and torsional 
+        loads for the wing, and the skin carries essentially no loads at all. Figure~\ref{fig:traditional-wing-construction} shows
+        the Atlas rotor blades including the spars, ribs, skin, and foam leading edges. 
+
+        \begin{figure}[!hbt]
+                \centering
+                \includegraphics[width=.75\textwidth]{images/wing-construction}
+                \caption{Rotor blades from the Atlas human powered helicopter using a spar and rib based construction 
+                method}
+                \label{fig:traditional-wing-construction}
+        \end{figure}
+
+        But a recent, highly successful, human powered aircraft called the Musculair 2 used a stressed skin construction
+        method. This aircraft used a full carbon fiber skin combined with a carbon fiber I-beam for their wing seen in 
+        Fig.~\ref{fig:musculair-wing-construction}. Using this construction method, the I-beam carries the bending loads, 
+        while the skin handles most of the bending loads. The primary motivation for using this new method was to achieve 
+        a more consistent as-flow airfoil shape allowing them to achieve more laminar flow and lower overall drag. Although 
+        this method is better aerodynamically, it is also heavier than the spar and rib based method. 
+
+        \begin{figure}[!hbt]
+                \centering
+                \includegraphics[width=.75\textwidth]{images/musculair2-wing-construction}
+                \caption{Wing construction for the Musculair 2 aircraft, utilizing a stressed carbon fiber skin and I-beam 
+                to handle bending and twisting loads.}
+                \label{fig:musculair-wing-construction}
+        \end{figure}
+
+        AeroVelo be selecting between these two construction methods as part of the conceptual design process. They will use 
+        OpenMDAO to build an Aero-elastic model that will allow them to understand the trade between aerodynamics and weight 
+        that is fundamental to selecting between the two construction methods. 
+
+        \subsubsection{Detailed Design}
+
+        After the conceptual design phase is complete, AeroVelo will perform a complete detailed design of the aircraft. This 
+        design phase will rely heavily on the high-fidelity aero-propulsive elastic models built by the other team members. 
+        These models will be used to finalize the propeller sizing, aerodynamic shape, and structural design of the aircraft. They will pick 
+        between three possible drive trains: chain and sprocket, gear and shaft, or all electric. All other details (e.g. control
+        surface sizing and location, pilot positioning, landing gear, etc.) will also be defined to complete the aircraft 
+        design. 
+
+        A the end of this design phase, a detailed design report will be written that captures all of the analyses done 
+        and the data that was generated. The decisions made about the design will be documented along with the key data that 
+        supported those decisions. The report will include a detailed geometry model of the whole airplane. 
+
+
 
     \subsection{Structural Testing \& Model Validation}
         
@@ -496,19 +554,19 @@ step.
         NASA Armstrong's Compact Fiber Optic Sensing System (CFOSS). CFOSS offers several important features that will make the 
         data collected of high value for tool validation purposes and also make it uniquely qualified to be applied to human powered vehicles. 
 
-        First, CFOSS offers a very high resolution for measurements. This will be key in collecting high quality data for the validation 
-        of the TACS predictions. In the types of ultra-light structures that are built for these aircraft, the structural failure can 
-        occur anywhere along the length of the wing spar, as seen in Fig.~\ref{fig:spar-failure}. By using the 
-        high resolution of the CFOSS system, the data will capture the detailed loads across the entire structure 
-        which can then be matched up with the predicted results and the models can be adapted to more accurately 
-        predict the response of the structural models.
-
         \begin{figure}[!hbt]
             \centering
             \includegraphics[width=.5\textwidth]{images/spar_failure}
             \caption{A strain induced spar failure from structural testing for the AeroVelo Atlas human powered helicopter.}
             \label{fig:spar-failure}
         \end{figure}
+
+        First, CFOSS offers a very high resolution for measurements. This will be key in collecting high quality data for the validation 
+        of the TACS predictions. In the types of ultra-light structures that are built for these aircraft, the structural failure can 
+        occur anywhere along the length of the wing spar, as seen in Fig.~\ref{fig:spar-failure}. By using the 
+        high resolution of the CFOSS system, the data will capture the detailed loads across the entire structure 
+        which can then be matched up with the predicted results and the models can be adapted to more accurately 
+        predict the response of the structural models.
 
         Second, CFOSS is an extremely lightweight system, designed to be used for real time structural health monitoring applications.
         It is much lighter and smaller than traditional strain gage based system. Given the extreme sensitivity to weight
@@ -552,14 +610,16 @@ step.
 
         \begin{figure}[!htbp]
             \centering
-            \includegraphics[width=.5\textwidth]{images/follower_force}
-            \caption{The upper diagram shows loads applied in a single direction, as demonstrated in Figure~\ref{fig:spar-load-test}. However, loads applied normal to the surface as shown in the lower diagram, are important for large deflections.}
+            \includegraphics[width=.7\textwidth]{images/follower_force}
+            \caption{Loads applied normal to the surface is important for large deflections}
+            \label{fig:follower-force}
+			\caption{The upper diagram shows loads applied in a single direction, as demonstrated in Figure~\ref{fig:spar-load-test}.However, loads applied normal to the surface, as shown in the lower diagram, are important for large deflections.}
         \end{figure}
 
         So the testing will be conducted using a loading mechanism that applies appropriate loads in the normal direction
-        as the spar deflects. Data will be collected, using CFOSS, for pure bending and bend-twist loads for a series of different 
+        as the spar deflects, as illustrated by the lower diagram in Fig.~\ref{fig:follower-force}. Data will be collected, using CFOSS, for pure bending and bend-twist loads for a series of different 
         load levels. After a series of non-destructive tests are preformed to generate stress and strain validation data, the test 
-        article will go through a set of destructive tests to generate ultimate yield stress data. 
+        article will go through a set of destructive tests to generate ultimate strength data. 
 
 
   \section{Innovation \& Impact}
@@ -694,7 +754,10 @@ step.
     \clearpage
     \newgeometry{left=0cm,bottom=0cm,top=0cm,right=0cm}
     \includepdf[scale=1.2, pages={1}]{resumes/justin_resume.pdf}
+    \includepdf[scale=1.2, pages={1}]{resumes/nino_piazza_resume.pdf}
     \restoregeometry
+
+
     \newgeometry{left=0.5cm,bottom=0cm,top=0cm,right=0.5cm}
     \includepdf[pages={1}]{resumes/Chin_SeedlingResume9_3_14.pdf}
     \restoregeometry
