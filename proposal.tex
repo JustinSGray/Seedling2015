@@ -67,7 +67,7 @@
   \begin{tabular}{l l}
     Principal Investigator & Justin S. Gray; NASA Glenn Research Center, Propulsion Systems Analysis Branch \\ 
     & \\
-    Co-Investigators & Dr. Juan Alonso; Stanford University, Department of Aeronautics and Astronautics \\
+    Co-Investigators & Dr. Juan J. Alonso; Stanford University, Department of Aeronautics and Astronautics \\
                      & Dr. Graeme Kennedy; Georgia Institute of Technology, School of Aerospace Engineering \\ 
                      & Dr. Todd Reichert; Vice President of Aerodynamics, AeroVelo Inc. \\
     & \\ 
@@ -82,43 +82,42 @@
   \section{Introduction}
 
     The Fundamental Aeronautics Program has identified \textbf{Ultra Efficient Commercial Vehicles} as 
-    a key research thrust. A number of concepts have been proposed along those lines, such as 
+    a key research thrust. A number of concepts have been proposed along those lines through the N+2 and N+3 programs, such as 
     the MIT D8 double­-bubble and the Boeing SUGAR­-High truss­-braced wing. These aircraft rely on 
-    very high­-aspect ratio, extremely flexible wings to help achieve very low energy consumption. 
-    Long endurance solar sensorcraft, being proposed by companies such as General Atomics and 
-    Scaled Composites, share a similar approach to minimizing energy consumption by leveraging highly 
-    flexible wings. This begs the question, \textbf{``How does aircraft design change to take full 
-    advantage of highly flexible structures?''} The Vision 2030 CFD study also highlights the 
+    very high­-aspect ratio, extremely flexible wings to significantly reduce the vehicle's empty weight and help achieve very low energy consumption. 
+    Long endurance solar sensorcraft and communication platforms being proposed by companies such as General Atomics,
+    Scaled Composites, Google and Facebook, also focus on extreme empty weight reductions to minimize energy consumption, resulting in highly 
+    flexible wings. This situation begs the question, \textbf{``How can future aircraft designs be changed to take full 
+    advantage of highly flexible structures?''} The Vision 2030 CFD study\cite{vision2030} also highlights the 
     design of highly flexible wings as a modeling grand challenge problem. That study specifically 
-    highlights the need for highly multidisciplinary, tightly coupled design process with high 
+    focused on the need for highly multidisciplinary, tightly coupled design processes with high 
     fidelity tools to address this grand challenge.
 
     Aircraft empty weight reduction is a major driving factor pushing designs toward highly flexible structures. 
     While lower structural weight helps to achieve lower energy consumption it also tends to result in very large 
-    deflections and highly non-linear structural responses. These characteristics mean that 
-    structural considerations play a major role in the overall aircraft design, and have been shown to be a primary 
+    deflections, aeroelastic and control issues, and, possibly, highly non-linear structural responses. These characteristics mean that, in addition to the vehicle aerodynamics,
+    structural considerations play a major role in the overall approach to aircraft design, and have been shown to be a primary 
     concern for aircraft stability\cite{heliosfailure_2007}. Thus it is interesting to consider the question, 
     \textbf{``Could structural health monitoring technologies be used to enable lighter 
     weight structures?''}, to address the \textbf{Real­-Time System­-Wide Safety Assurance} thrust. 
 
     One of the major challenges associated with designing highly flexible wings is that the as-flown configuration 
-    is dramatically different than the as-built configuration (jig shape). With modern aeroelastic techniques, 
-    we can now design more conventional wings taking this into account~\cite{Kennedy:2014:tacs-tripan, Kennedy:2012:CMC, 
-      Kennedy:2014:High-aspect-ratio}. However, highly flexible
-    structures bring new challenges that need to be addressed. Besides the non-linear structural 
-    response these wings also tend to have different load distributions from conventional wings. Many of the concepts 
-    are electric aircraft with propellers spread out across the wing for distributed propulsion. This can have not only a 
+    is dramatically different than the as-built configuration (jig shape). While this difference between the jig shape and the as-flown, 1-g shape is commonly solved in typical commercial aircraft designs by building the jig shape that, under a 1-g load, deforms to the desired cruise shape~\cite{Kennedy:2014:tacs-tripan, Kennedy:2012:CMC, 
+      Kennedy:2014:High-aspect-ratio}, new challenges arise when treating highly-flexible
+    structures and aircraft that operate at various design conditions (supersonic vehicles, high-endurance high-altitude aircraft, military aircraft, etc.). Besides the non-linear structural 
+    response these wings also tend to exhibit different load distributions from conventional wings. Many of the concepts 
+    are based on electric propulsion systems with propellers spread across the wing. This can have not only a 
     structural impact, but also an aerodynamic and controllability impact as well. These aspects push the 
     limits of todays most advanced high-fidelity aeroelastic design techniques, which currently rely on linear structural 
-    models, and don't account for any propulsion interactions, nor do they easily handle constraints on dynamic behavior. 
+    models and don't account for any propulsion interactions, nor do they easily handle constraints on dynamic behavior. 
 
     Although tools currently exist to address each one of the various modeling challenges, there is not yet a well 
-    established method to integrating them all into a cohesive system model and then applying that model to an actual 
-    aircraft design process. This proposal outlines a unique opportunity for NASA to fill this capability gap
-    via an aircraft design and flight testing effort done in close collaboration with AeroVelo Inc., Georgia 
-    Institute of Technology, and Stanford University. In 2013 AeroVelo won the Sikorski Human Powered Helicopter Prize. 
+    established method to integrate them all into a cohesive system model and then applying that model to an actual 
+    aircraft design process. Moreover, brute-force methods to integrate a number of high-fidelity analysis tools and drive them with an optimizer tend to require such large computational times that they are often useless within typical design processes.  This proposal outlines a unique opportunity for NASA to fill this capability gap
+    by developing and integrating the necessary tools and applying them to an aircraft design and flight testing effort performed in close collaboration with AeroVelo Inc., the Georgia 
+    Institute of Technology, and Stanford University. In 2013 AeroVelo won the Sikorski Human Powered Helicopter Prize by flying the first human powered helicopter capable of staying aloft for 60 seconds and reaching a minimum altitude of 3 meters, with the center point of the aircraft hovering over a 10-by-10-meter square. 
     Their next human powered aircraft will be built to conquer the Kremer Marathon Challenge; fly a 
-    human powered aircraft 26.1 miles in under 1 hour. They have invited a NASA led team of researchers to 
+    human powered aircraft 26.1 miles in under 1 hour. They have invited a NASA-led team of researchers to 
     participate in this project. 
 
     A human powered aircraft designed for the Kremer Marathon Challenge makes an excellent test case for the 
@@ -126,15 +125,15 @@
     The only available power is that of the humans on board, and each one can provide about the 
     same amount of power as a cordless drill. In order to reach the speeds necessary, multiple people will be required. 
     Figure \ref{fig:aerovelo-concept} is the initial AeroVelo concept, which includes three pilots spread across the wing
-    span with three propellers. Spreading the pilots out over the wing span yields a distributed load profile, 
+    span with three propellers. Spreading the pilots out over the wing span yields a distributed load profile (also known as "span loading"), 
     which must be supported by a very light weight and extremely flexible structure. Weight is not the only 
     key design consideration either. To keep aerodynamic drag low, it is critical to maintain laminar flow 
-    over as much of the wing as possible. 
+    over as much of the wing as possible and to ensure that the large structural deformations do not cause unnecessary deviations in the aerodynamic performance and the stability of the aircraft. 
 
     \begin{figure}[!hbt]
         \centering
         \includegraphics[width=.5\textwidth]{images/vsp_concept_solid}
-        \caption{AeroVelo concept of 3 pilot human powered aircraft for the Kermer Marathon Aircraft}
+        \caption{AeroVelo concept of 3-pilot human-powered aircraft for the Kermer Marathon Aircraft}
         \label{fig:aerovelo-concept}
     \end{figure}
 
@@ -143,20 +142,19 @@
     high altitude, long endurance aircraft. Hence all of the tools and methods developed under 
     this effort will be directly applicable to that class of aircraft. By working with a human powered 
     aircraft, we are able to achieve a lower cost, rapid feedback environment to develop and validate these 
-    new methods. Then later efforts can quickly apply the new methods to other types of aircraft like the D8
+    new methods. Then later efforts can quickly apply the new methods to design studies of interest to NASA such as the D8, SUGAR,
     or HALE concepts. 
 
-    In phase one of this effort, the analysis tools and coupled design environment will be built and 
-    the detailed design of the marathon aircraft will be completed. In addition, sub-scale testing will be 
-    performed to validate structural models and construction techniques. The phase two effort will consist of two 
-    parallel efforts. First the aircraft will be built, tested, and flown to attempt the Kremer Marathon Challenge. 
+    During Phase I of this effort, the analysis tools and coupled design environment will be built and 
+    the detailed design of the Marathon aircraft will be completed. In addition, sub-scale testing will be 
+    performed to validate structural models and construction techniques. During the Phase II effort, two 
+    parallel efforts will be pursued. First the aircraft will be built, tested, and flown to attempt the Kremer Marathon Challenge. 
     The aircraft will be used as a flying test bed to collect further structural and aerodynamic validation data as well 
     as additional data on flight handling characteristics and overall performance. All the data collected, 
     models generated, and the final detailed design are intended to be released publicly under an open-source license
     upon completion of the challenge. Second, additional research will be conducted to extend the design tools to 
-    for the design of a HALE atmospheric satellite aircraft. This additional design effort leverage all of the experience 
-    gained from working on the human powered vehicle and move the work further toward an actual commercial application. 
-
+    for the design of a HALE atmospheric satellite aircraft. This additional design effort will leverage all of the experience 
+    gained from working on the human powered vehicle and move the work further toward an actual commercial application.   In particular, the ability to utilize the tools and integration methods developed and to include the stability and control requirements for aircraft whose flight altitudes can vary widely (from as low as 10-12 Km to as high as 28 Km in altitude) will be required to tackle such designs.  Moreover, these aircraft are designed, from the ground up, to be highly (if not completely) autonomous.  The proposed Phase II effort will incorporate these concepts of autonomy in our multi-disciplinary design environment, providing a valuable test case and database for future efforts in autonomous aircraft design within NASA.
 
   \section{Objectives and Technical Approach}
 
