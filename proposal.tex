@@ -338,30 +338,30 @@ of Technology will be responsible for building the structural models
 and providing support for integrating them into the OpenMDAO
 framework.
 
-Isogeometric analysis (IGA) techniques offer several important
-benefits over traditional finite-elements, especially in the context
-of nonlinear analysis and design optimization. IGA methods utilize the
-underlying b-spline and NURBS basis functions from the geometry model
-for displacement interpolation, producing smooth and accurate
-displacement and stress solutions. As a result, a well constructed
-structural IGA model will require fewer degrees of freedom to achieve
-the same accuracy compared to an equivalent conventional
-finite-element model. This reduction in the number of degrees of
-freedom is especially beneficial in the context of nonlinear analysis
-when multiple linear system solutions are required for a single
-analysis. 
-
-In addition, IGA methods offer two further benefits within the context
-of structural design optimization. First, IGA methods enable
-CAD-compatible geometry modification, ensuring that the final design
-can be used within CAD. This is not always possible with general
-finite-element shape optimization methods such as
-free-form-deformation (FFD)~\cite{Sederberg:1986:FFD,
-  Kenway:2010:CAD}.  Second, IGA techniques are high-order with
-superior smoothness properties compared to traditional finite-element
-techniques. The resulting smooth displacement and stress distributions
-results in a more-favorable design space for stress-constrained design
-optimization using gradient-based methods.
+One of the key difficulties with incorporating conventional
+high-fidelity nonlinear finite-element structural analysis early in
+the design process is the high computational cost of
+analysis. Isogeometric analysis (IGA) techniques offer a potential
+solution to this difficulty by greatly reducing the number of
+structural degrees of freedom required to achieve the necessary level
+of accuracy. This reduction is especially beneficial in the context of
+nonlinear analysis where multiple residual evaluations and linear
+system solutions are required for a single analysis.
+ 
+IGA methods utilize the underlying b-spline and NURBS basis functions
+from the geometry model for displacement interpolation, producing
+smooth and accurate displacement and stress solutions.  This
+construction offers two benefits within the context of structural
+design optimization. First, IGA methods enable CAD-compatible geometry
+modification, ensuring that the final design can be used within
+CAD. This is not always possible with general finite-element shape
+optimization methods such as free-form-deformation
+(FFD)~\cite{Sederberg:1986:FFD, Kenway:2010:CAD}.  Second, IGA
+techniques are high-order with superior smoothness properties compared
+to traditional finite-element techniques. The resulting smooth
+displacement and stress distributions produces a more-favorable design
+space for stress-constrained design using gradient-based optimization
+methods.
 
 \subsubsection{Nonlinear structural modeling}
 
@@ -538,6 +538,28 @@ analyzing very flexible structures subject to aerodynamic loads. In
 addition, these following force terms are correctly linearized,
 resulting in fast analysis and accurate derivatives for design
 optimization.
+
+\subsubsection{Low-fidelity aeroelastic framework}
+
+A key element of this work will be a multi-fidelity framework that
+includes aeroelastic and dynamic constraints on the aircraft.  These
+constraints are especially important for flexible light-weight
+aircraft.  To assess the dynamic aeroelastic characteristics of the
+aircraft, we will use the existing capabilities of TACS coupled to the
+low-fidelity aerodynamic panel code
+TriPan~\cite{Kennedy:2014:tacs-tripan}. TriPan is a parallel,
+unstructured three-dimensional panel code for calculating the
+aerodynamic forces and moments for inviscid, external lifting flows
+governed by the Prandtl--Glauert equation, and has been used for a
+number of static and dynamic aeroelastic design optimization
+studies~\cite{Kennedy:2014:tacs-tripan, Kennedy:2012:CMC,
+  Kennedy:2013:SDM, Kennedy:2014:High-aspect-ratio,
+  Kennedy:2014:Aviation}. A benefit of using TACS and TriPan is that
+it will provide a fast and robust tool for early design space
+exploration. While the existing TACS/TriPan tool will be used within
+the project, our objective remains to integrate and use the
+multi-fidelity aeroelastic design optimization tools for all aspects
+of the design.
 
 
     % \subsection{Structural Dynamics Modeling (Glenn/AeroVelo)}
