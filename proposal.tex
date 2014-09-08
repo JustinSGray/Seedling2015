@@ -297,36 +297,26 @@ Given the success of our existing methods, and for purposes of this Seedling eff
     The propeller design will be performed as part of the overall aircraft design optimization. RPM, radius, twist and chord distribution, and 
     physical location will all be considered as design variables. Using the combination of low and high fidelity analyses, the propeller 
     effects on the airframe and vice versa will be considered. Propulsive loads on the airframe will be modeled, and aerodynamic affects of the
-    airframe on the propeller will also be accounted for. 
-
-
-
-
-    \subsubsection{Wing, Fuselage \& Empennage Analysis (Stanford)}
-    
-    Similarly to the analysis and design of the propellers, a similar multi-fidelity approach will be used for the analysis and design of the main elements of the configuration: the wing, fuselage and empennage.  A combination of low-and high-fidelity approaches will be investigated to provide results of high fidelity at the minimum possible computational cost.  In particular, the tools we will use are:
-%
-\begin{itemize}
-\item Low-fidelity method: for rapid turnaround of aerodynamic calculations we will use a panel code, TriPan, which, together with reasonably accurate airfoil drag polar information can lead to reasonably-accurate estimates of the performance of the vehicle.  Component interactions, particularly when viscosity is concerned, are not captured very accurately, but such issues can be dealt with in a  multi-fidelity approach.
-\item High-fidelity method: a full RANS low solver will be utilized for the high-fidelity simulations of the entire vehicle.  Details of SU2 have been provided before.
-\end{itemize}
-%
-Given that both SU2 and TriPan are able to provide sensitivity information at relatively low cost, we intend to leverage the availability (and abundance) of gradients to further reduce the cost of creating the Gaussian Process Regression multi-fidelity surrogate models.
-
-Note that the extent of laminar flow is a fundamental design requirement to attain the required level of performance.  For this purpose, and so that transition can be captured accurately for these configurations, we will use the model of Langtry and Menter~\cite{Langtry:Correlation} that has already been implemented in SU2.  Using such models we can have a reasonable expectation of capturing the effects of transition and laminar flow across the entire configuration.  
-
-    \subsubsection{Wing-Propeller Coupling}
-        
-
-    As mentioned earlier, SU2 has been successfully applied to the design of propeller and wind turbine systems 
-    and already has preliminary support for actuator disk boundary conditions that will be needed to implement 
-    the coupled wing­-propeller design process. The actuator disk model is based on results a radially-varying prediction using a blade-element-momentum theory approach. The methodology has been demonstrated to work in the low 
+    airframe on the propeller will also be accounted for. As mentioned earlier, SU2 has has preliminary support for actuator 
+    disk boundary conditions that will be needed to implement the coupled wing­-propeller design process. The actuator disk model is based on a radially-varying prediction using a blade-element-momentum theory approach. The methodology has been demonstrated to work in the low 
     Mach conditions that will be seen by this aircraft. Because it is part of SU2, the actuator disk methodology also provides adjoint derivatives 
-    which are fundamental to the application of state-of-the-art gradient based design 
-    optimization methods. Researchers at Stanford will be responsible for building for developing 
-    the aerodynamic models of the wing and will collaborate with NASA Ames on developing the 
-    propeller models. In addition they will provide support for integrating SU2 into the OpenMDAO 
-    framework. 
+    which are fundamental to the application of state-of-the-art gradient based design optimization methods. Researchers at Stanford will be responsible for building for developing the aerodynamic models of the wing and will collaborate with NASA Ames on developing the 
+    propeller models. 
+
+    \subsubsection{Wing, Fuselage \& Empennage Analysis}
+    
+    Similarly to the analysis and design of the propellers, a multi-fidelity approach will be used for the analysis and design of the main elements of the configuration: the wing, fuselage and empennage.  A combination of low-and high-fidelity approaches will be investigated to provide results of high fidelity at the minimum possible computational cost.  In particular, the tools we will use are:
+%
+    \begin{itemize}
+    \item Low-fidelity method: for rapid turnaround of aerodynamic calculations we will use a panel code, TriPan, which, together with reasonably accurate airfoil drag polar information can lead to reasonably-accurate estimates of the performance of the vehicle.  Component interactions, particularly when viscosity is concerned, are not captured very accurately, but such issues can be dealt with in a  multi-fidelity approach.
+    \item High-fidelity method: a full RANS low solver will be utilized for the high-fidelity simulations of the entire vehicle.  Details of SU2 have been provided before.
+    \end{itemize}
+    %
+    Given that both SU2 and TriPan are able to provide sensitivity information at relatively low cost, we intend to leverage the availability (and abundance) of gradients to further reduce the cost of creating the Gaussian Process Regression multi-fidelity surrogate models.
+
+    Note that the extent of laminar flow is a fundamental design requirement to attain the required level of performance.  For this purpose, and so that transition can be captured accurately for these configurations, we will use the model of Langtry and Menter~\cite{Langtry:Correlation} that has already been implemented in SU2.  Using such models we can have a reasonable expectation of capturing the effects of transition and laminar flow across the entire configuration.          
+
+ 
     
         \subsection{Structural Modeling}
 
@@ -863,6 +853,17 @@ optimization.
     \centering
     \includegraphics[height=\textheight]{images/budget_request}
     \end{landscape}
+
+  \subsection{Stanford Itemized Budget}
+    \begin{table}\begin{tabular}{l|c}
+    Graduate Student salary, tuition, and overhead &  \$80,000 \\
+    Faculty Member (Juan J. Alonso), 3\% AY, 33\% Summer salary & \$41,250 \\
+    Travel funds (for team meetings, necessary reviews, presentation of work at a conference) & \$3,750 \\
+    \hline
+    Total & \$125,000 \\ 
+    \hline
+    \end{tabular}\end{table}
+  \subsection{Georgia Institute of Technology Itemized Budget}
 
   \clearpage
 
