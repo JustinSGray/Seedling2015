@@ -319,8 +319,19 @@ Given the success of our existing methods, and for purposes of this Seedling eff
     Similarly to the analysis and design of the propellers, a multi-fidelity approach will be used for the analysis and design of the main elements of the configuration: the wing, fuselage and empennage.  A combination of low-and high-fidelity approaches will be investigated to provide results of high fidelity at the minimum possible computational cost.  In particular, the tools we will use are:
 %
     \begin{itemize}
-    \item Low-fidelity method: for rapid turnaround of aerodynamic calculations we will use a panel code, TriPan, which, together with reasonably accurate airfoil drag polar information can lead to reasonably-accurate estimates of the performance of the vehicle.  Component interactions, particularly when viscosity is concerned, are not captured very accurately, but such issues can be dealt with in a  multi-fidelity approach.
-    \item High-fidelity method: a full RANS low solver will be utilized for the high-fidelity simulations of the entire vehicle.  Details of SU2 have been provided before.
+    \item Low-fidelity method: for rapid turnaround of aerodynamic calculations we will use a panel code, TriPan, which, 
+    together with reasonably accurate airfoil drag polar information can lead to reasonably-accurate estimates of 
+    the performance of the vehicle. TriPan~\cite{Kennedy:2014:tacs-tripan}. TriPan is a parallel, unstructured 
+    three-dimensional panel code for calculating the aerodynamic forces and moments for inviscid, external lifting 
+    flows governed by the Prandtl--Glauert equation, and has been used for a number of static and dynamic 
+    aeroelastic design optimization studies~\cite{Kennedy:2014:tacs-tripan, Kennedy:2012:CMC,Kennedy:2013:SDM, 
+    Kennedy:2014:High-aspect-ratio, Kennedy:2014:Aviation}. A benefit of using TACS and TriPan is that
+    it will provide a fast and robust tool for early design space exploration. Component interactions, 
+    particularly when viscosity is concerned, are not captured very accurately, but such issues 
+    can be dealt with in a  multi-fidelity approach.
+
+    \item High-fidelity method: a full RANS low solver will be utilized for the high-fidelity 
+    simulations of the entire vehicle.  Details of SU2 have been provided before.
     \end{itemize}
     %
     Given that both SU2 and TriPan are able to provide sensitivity information at relatively low cost, we intend to leverage the availability (and abundance) of gradients to further reduce the cost of creating the Gaussian Process Regression multi-fidelity surrogate models.
@@ -550,27 +561,27 @@ addition, these following force terms are correctly linearized,
 resulting in fast analysis and accurate derivatives for design
 optimization.
 
-\subsubsection{Low-fidelity aeroelastic framework}
+% \subsubsection{Low-fidelity aeroelastic framework}
 
-A key element of this work will be a multi-fidelity framework that
-includes aeroelastic and dynamic constraints on the aircraft.  These
-constraints are especially important for flexible light-weight
-aircraft.  To assess the dynamic aeroelastic characteristics of the
-aircraft, we will use the existing capabilities of TACS coupled to the
-low-fidelity aerodynamic panel code
-TriPan~\cite{Kennedy:2014:tacs-tripan}. TriPan is a parallel,
-unstructured three-dimensional panel code for calculating the
-aerodynamic forces and moments for inviscid, external lifting flows
-governed by the Prandtl--Glauert equation, and has been used for a
-number of static and dynamic aeroelastic design optimization
-studies~\cite{Kennedy:2014:tacs-tripan, Kennedy:2012:CMC,
-  Kennedy:2013:SDM, Kennedy:2014:High-aspect-ratio,
-  Kennedy:2014:Aviation}. A benefit of using TACS and TriPan is that
-it will provide a fast and robust tool for early design space
-exploration. While the existing TACS/TriPan tool will be used within
-the project, our objective remains to integrate and use the
-multi-fidelity aeroelastic design optimization tools for all aspects
-of the design.
+% A key element of this work will be a multi-fidelity framework that
+% includes aeroelastic and dynamic constraints on the aircraft.  These
+% constraints are especially important for flexible light-weight
+% aircraft.  To assess the dynamic aeroelastic characteristics of the
+% aircraft, we will use the existing capabilities of TACS coupled to the
+% low-fidelity aerodynamic panel code
+% TriPan~\cite{Kennedy:2014:tacs-tripan}. TriPan is a parallel,
+% unstructured three-dimensional panel code for calculating the
+% aerodynamic forces and moments for inviscid, external lifting flows
+% governed by the Prandtl--Glauert equation, and has been used for a
+% number of static and dynamic aeroelastic design optimization
+% studies~\cite{Kennedy:2014:tacs-tripan, Kennedy:2012:CMC,
+%   Kennedy:2013:SDM, Kennedy:2014:High-aspect-ratio,
+%   Kennedy:2014:Aviation}. A benefit of using TACS and TriPan is that
+% it will provide a fast and robust tool for early design space
+% exploration. While the existing TACS/TriPan tool will be used within
+% the project, our objective remains to integrate and use the
+% multi-fidelity aeroelastic design optimization tools for all aspects
+% of the design.
 
 
     % \subsection{Structural Dynamics Modeling (Glenn/AeroVelo)}
@@ -791,7 +802,7 @@ of the design.
     The NASA team members come from three different NASA Centers: Glenn, Ames, and Armstrong. The other team members come from three different external organizations. Table~\ref{tab:team-expertise} summarizes the team members and their expertise. In order to facilitate the 
     collaboration, monthly virtual meetings will be held with the whole team. These meetings will allow progress updates and coordination 
     between all members. In addition, an in person meeting will be held within the first 3 months of the effort to serve as a design workshop 
-    led by AeroVelo where the team will all go review the conceptual design of the aircraft and work to establish the proper baselines 
+    led by AeroVelo where the team will all review the conceptual design of the aircraft and work to establish the proper baselines 
     for all their models. 
 
     The structural testing, conducted at AeroVelo facilities, will involve a coordinated effort between AeroVelo, NASA Glenn, 
@@ -882,7 +893,7 @@ of the design.
     \includegraphics[height=\textheight]{images/budget_request}
     \end{landscape}
 
-  \subsection{Stanford Itemized Budget}
+  \subsection*{Stanford Itemized Budget}
     \begin{table}\begin{tabular}{l c}
     Graduate Student salary, tuition, and overhead &  \$80,000 \\
     Faculty Member (Juan J. Alonso), 3\% AY, 33\% Summer salary & \$41,250 \\
@@ -891,7 +902,7 @@ of the design.
     Total & \$125,000 \\ 
     \hline
     \end{tabular}\end{table}
-  \subsection{Georgia Institute of Technology Itemized Budget}
+  \subsection*{Georgia Institute of Technology Itemized Budget}
 
     \begin{table}\begin{tabular}{l c}
     Graduate Student salary, tuition, and overhead &  \$60,000 \\
