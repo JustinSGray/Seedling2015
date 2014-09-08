@@ -155,8 +155,19 @@
     as additional data on flight handling characteristics and overall performance. All the data collected, 
     models generated, and the final detailed design are intended to be released publicly under an open-source license
     upon completion of the challenge. Second, additional research will be conducted to extend the design tools to 
-    for the design of a HALE atmospheric satellite aircraft. This additional design effort will leverage all of the experience 
-    gained from working on the human powered vehicle and move the work further toward an actual commercial application.   In particular, the ability to utilize the tools and integration methods developed and to include the stability and control requirements for aircraft whose flight altitudes can vary widely (from as low as 10-12 Km to as high as 28 Km in altitude) will be required to tackle such designs.  Moreover, these aircraft are designed, from the ground up, to be highly (if not completely) autonomous.  The proposed Phase II effort will incorporate these concepts of autonomy in our multi-disciplinary design environment, providing a valuable test case and database for future efforts in autonomous aircraft design within NASA.
+    for the design of a HALE atmospheric satellite UAV. This additional design effort will leverage all of the experience 
+    gained from working on the human powered vehicle and move the work further toward more direct commercial applications.
+    In particular, the ability to utilize the tools and integration methods developed and to include the stability and
+    control requirements for aircraft whose flight altitudes can vary widely (from as low as 10-12 Km to as high as 28 Km
+    in altitude) will be required to tackle such designs.  Moreover, these aircraft are designed, from the ground up, to
+    be highly (if not completely) autonomous.  The proposed Phase II effort will incorporate these concepts of autonomy in
+    our multi-disciplinary design environment, providing a valuable test case and database for future efforts in
+    autonomous aircraft design within NASA. To better quantify the benefits of a tightly coupled optimization,
+    two drones will be tested and flown over the course of the second year. The first UAV will be derived from
+    pre-existing prototypes from NASA Ames, and serve as a baseline for performance benchmarks.
+    Starting from this baseline, the second UAV will be optimized using the developed toolsets.
+    Performance data from the second aircraft will then be used to validate any increases in performance compared to
+    the calculated increases in performance based on the simulation results.
 
   \section{Objectives and Technical Approach}
 
@@ -791,10 +802,10 @@ optimization.
             CFD Model                   & 3/30/2015 & Unstructured Volume Mesh of the Wing \\
             Preliminary Design           & 3/30/2015 & Conceptual design report for Marathon Aircraft  \\
             Aero-Propulsive Analysis    & 6/30/2015 & OpenMDAO model with propeller coupled to CFD \\
-            Structural Testing          & 7/15/2015 & Complete structural test report \\
+            Structural Testing          & 7/15/2015 & Complete structural testing and CFOSS integration \\
             Aero-Elastic Analysis    & 7/30/2015 & OpenMDAO model with aero coupled to structures \\
             \bigcell{l}{Aero-Propulsive-Elastic \\ Optimization} & 8/30/2015 & Completed optimization of vehicle \\
-            Detailed Design             & 9/30/2015 & Detailed design report for Marathon Airplane \\
+            Detailed Design Report       & 9/30/2015 & Detailed design and dynamic model for Marathon Airplane \\
             \textit{ \textbf{Year 2}} & \\
             Refined APE Model           & 2/30/2016 & Refined and adapted model based on construction \\
             Drone Parametric Model      & 3/30/2016 & Preliminary design of a baseline ultra-light drone configuration \\
@@ -805,25 +816,9 @@ optimization.
             Optimized Drone Construction & 9/30/2016 & Construction of the optimized ultra-light drone \\
             Optimized Drone Testing     & 10/15/2016 & \bigcell{l}{Compare optimized drone performance against \\
                                            baseline, further model validation} \\
+            Final report                & 11/30/2016 & All Code/Design/Docs Published \\
         \end{tabular}\end{table}
 
-    \subsection{Deliverables}
-        \subsubsection{Year 1}
-            \begin{itemize}
-                \item Structural Test Articles (AeroVelo)
-                \item Aerodynamic Models (Stanford)
-                \item Structural Models (GaTech)
-                \item Integrated System Model in OpenMDAO (NASA Glenn/Ames)
-                \item Final Report (All)
-            \end{itemize}
-        \subsubsection{Year 2}
-            \begin{itemize}
-                \item Structural Dynamics Models (Stanford/GaTech)
-                \item CFOSS Integrated Spar (NASA Armstrong)
-                \item Flight Test Plan (AeroVelo)
-                \item Drone Comparison Report (NASA Ames)
-                \item Published Code/Design/Docs (All)
-            \end{itemize}
 
 
   \section{Cost Sharing}
