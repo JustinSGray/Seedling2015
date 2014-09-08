@@ -143,7 +143,7 @@
           <X_Len Value="1.302145" ID="BELVYKUNZJG"/>
           <X_Min Value="0.000000" ID="LGPGYDAKVLO"/>
           <Y_Len Value="22.087579" ID="ZPDBPLDJJCA"/>
-          <Y_Min Value="-11.043789" ID="VVBKCSAFDLZ"/>
+          <Y_Min Value="-11.043790" ID="VVBKCSAFDLZ"/>
           <Z_Len Value="0.262918" ID="NQSQEJAPWWB"/>
           <Z_Min Value="-0.134725" ID="LAWOBOVAWWU"/>
         </BBox>
@@ -254,7 +254,7 @@
                 <Avg_Chord Value="1.113429" ID="FYTBASQDZVQ"/>
                 <Dihedral Value="0.000000" ID="JHHTZZXDXOZ"/>
                 <Root_Chord Value="1.000000" ID="ZQPOPDGNDAC"/>
-                <Sec_Sweep Value="12.781700" ID="OBFXPZGMCKL"/>
+                <Sec_Sweep Value="12.781698" ID="OBFXPZGMCKL"/>
                 <Sec_Sweep_Location Value="1.000000" ID="MCXUHNTSOKK"/>
                 <SectTess_U Value="6.000000" ID="JYDZFPMJAXR"/>
                 <Span Value="1.000000" ID="GBVXENCDNDM"/>
@@ -350,7 +350,7 @@
                 <Avg_Chord Value="1.058066" ID="VSHBYGRLFDL"/>
                 <Dihedral Value="0.000000" ID="HLYLBXPQMXR"/>
                 <Root_Chord Value="1.109815" ID="YEDPNPBOLZV"/>
-                <Sec_Sweep Value="-0.476293" ID="HKKWVEZMLIY"/>
+                <Sec_Sweep Value="-0.476292" ID="HKKWVEZMLIY"/>
                 <Sec_Sweep_Location Value="1.000000" ID="FHJNLUXRKTA"/>
                 <SectTess_U Value="6.000000" ID="TEQBKRFDHDX"/>
                 <Span Value="3.000000" ID="SXANWKCZHLN"/>
@@ -446,7 +446,7 @@
                 <Avg_Chord Value="0.669349" ID="TELLRUHTNHG"/>
                 <Dihedral Value="0.000000" ID="NORLQSWMJMA"/>
                 <Root_Chord Value="0.981420" ID="LDJDXANICSS"/>
-                <Sec_Sweep Value="-1.432177" ID="QTHMHCXEKII"/>
+                <Sec_Sweep Value="-1.432176" ID="QTHMHCXEKII"/>
                 <Sec_Sweep_Location Value="1.000000" ID="PYBOCFEBLPQ"/>
                 <SectTess_U Value="6.000000" ID="JFILUAYEFNU"/>
                 <Span Value="1.036175" ID="EESBKSSRKDL"/>
@@ -502,7 +502,7 @@
           <X_Len Value="2.568182" ID="TANCPSXLLGJ"/>
           <X_Min Value="-0.760870" ID="TKHDNSJMJEQ"/>
           <Y_Len Value="0.676787" ID="HFXAIGGCDVD"/>
-          <Y_Min Value="-4.038393" ID="USJCTVBIFZE"/>
+          <Y_Min Value="-4.838394" ID="USJCTVBIFZE"/>
           <Z_Len Value="0.742407" ID="MHTYLLDPJBJ"/>
           <Z_Min Value="-0.697291" ID="KYKZTFNJHMI"/>
         </BBox>
@@ -543,8 +543,8 @@
           <X_Rel_Location Value="-0.760870" ID="RCMFWORZWMM"/>
           <X_Rel_Rotation Value="0.000000" ID="OUVPYQVMCDA"/>
           <X_Rotation Value="0.000000" ID="XYOUCDLJXZD"/>
-          <Y_Location Value="-3.700000" ID="YWOXQOORNSF"/>
-          <Y_Rel_Location Value="-3.700000" ID="BDRRNIFWSXV"/>
+          <Y_Location Value="-4.500000" ID="YWOXQOORNSF"/>
+          <Y_Rel_Location Value="-4.500000" ID="BDRRNIFWSXV"/>
           <Y_Rel_Rotation Value="0.000000" ID="RBFJXMTNMRS"/>
           <Y_Rotation Value="0.000000" ID="OZGENOXFHBT"/>
           <Z_Location Value="-0.326087" ID="ZSFTQYRASXU"/>
@@ -1109,7 +1109,7 @@
           <X_Len Value="5.454545" ID="TFOBENROCXG"/>
           <X_Min Value="0.000000" ID="KSRBRLEPMHY"/>
           <Y_Len Value="0.100000" ID="UWWKEISWFPK"/>
-          <Y_Min Value="-3.750000" ID="EUIEYHVODOF"/>
+          <Y_Min Value="-4.550000" ID="EUIEYHVODOF"/>
           <Z_Len Value="0.100000" ID="SCAVAITDHLI"/>
           <Z_Min Value="-0.050000" ID="NAKJIKVOYRQ"/>
         </BBox>
@@ -1150,8 +1150,8 @@
           <X_Rel_Location Value="0.000000" ID="BRLPSCMETRQ"/>
           <X_Rel_Rotation Value="0.000000" ID="FCLLQRPFJSY"/>
           <X_Rotation Value="0.000000" ID="YSBZGRBIGTP"/>
-          <Y_Location Value="-3.700000" ID="ELRJJZSCZLE"/>
-          <Y_Rel_Location Value="-3.700000" ID="IWNTIGDWIZJ"/>
+          <Y_Location Value="-4.500000" ID="ELRJJZSCZLE"/>
+          <Y_Rel_Location Value="-4.500000" ID="IWNTIGDWIZJ"/>
           <Y_Rel_Rotation Value="0.000000" ID="IEUWPHPFETW"/>
           <Y_Rotation Value="0.000000" ID="BZTVBZMMPTO"/>
           <Z_Location Value="0.000000" ID="RMZZMTIWSTK"/>
@@ -1612,8 +1612,8 @@
         <BBox>
           <X_Len Value="0.760870" ID="LVZMQGOKAVU"/>
           <X_Min Value="4.000000" ID="VCAAYLTFGQV"/>
-          <Y_Len Value="9.810207" ID="FDDPYUGLMMH"/>
-          <Y_Min Value="-4.905104" ID="AYRONGUAKAN"/>
+          <Y_Len Value="11.410207" ID="FDDPYUGLMMH"/>
+          <Y_Min Value="-5.705104" ID="AYRONGUAKAN"/>
           <Z_Len Value="0.806969" ID="SZXLLQPRUUT"/>
           <Z_Min Value="-0.738118" ID="URFNLDZSSJK"/>
         </BBox>
@@ -1659,8 +1659,8 @@
           <X_Rel_Location Value="4.000000" ID="PSGVXKAXWOM"/>
           <X_Rel_Rotation Value="-30.000000" ID="QMSEYCWUOJK"/>
           <X_Rotation Value="-30.000000" ID="EROAUBRCVAA"/>
-          <Y_Location Value="3.700000" ID="HUSWGPSXIDR"/>
-          <Y_Rel_Location Value="3.700000" ID="ESWMPBYDRUF"/>
+          <Y_Location Value="4.500000" ID="HUSWGPSXIDR"/>
+          <Y_Rel_Location Value="4.500000" ID="ESWMPBYDRUF"/>
           <Y_Rel_Rotation Value="0.000000" ID="LEEGKIOPVHZ"/>
           <Y_Rotation Value="0.000000" ID="AHYIRTEQGNF"/>
           <Z_Location Value="0.000000" ID="PWTVJGBCBIZ"/>
@@ -1813,7 +1813,7 @@
         <Name>Prop</Name>
         <Attach>
           <Abs_Rel_Flag Value="1.000000" ID="TWTZJCKQIVQ"/>
-          <Rots_Attach_Flag Value="0.000000" ID="FHOWOTIPOZU"/>
+          <Rots_Attach_Flag Value="1.000000" ID="FHOWOTIPOZU"/>
           <Trans_Attach_Flag Value="1.000000" ID="XUVPIVGUOVH"/>
           <U_Attach_Location Value="0.000001" ID="JVEUMWUXTKF"/>
           <V_Attach_Location Value="0.000001" ID="FTSGNBZFKNT"/>
@@ -1821,10 +1821,10 @@
         <BBox>
           <X_Len Value="0.073861" ID="PKXAFCIPGMD"/>
           <X_Min Value="5.428571" ID="NTZPTVLIHHW"/>
-          <Y_Len Value="1.066159" ID="ZTNAZTDWDDU"/>
-          <Y_Min Value="3.166920" ID="GEEGRQRNWQE"/>
-          <Z_Len Value="0.938485" ID="WUMEXPPTEOL"/>
-          <Z_Min Value="-0.472151" ID="MXHOHLXMPKF"/>
+          <Y_Len Value="2.369883" ID="ZTNAZTDWDDU"/>
+          <Y_Min Value="3.315059" ID="GEEGRQRNWQE"/>
+          <Z_Len Value="0.853595" ID="WUMEXPPTEOL"/>
+          <Z_Min Value="-0.426798" ID="MXHOHLXMPKF"/>
         </BBox>
         <Geom>
           <CapUMaxOption Value="1.000000" ID="IYUWFYLGARQ"/>
@@ -1848,16 +1848,16 @@
         </Shape>
         <Sym>
           <Sym_Axial_Flag Value="8.000000" ID="IQULZBUMPOB"/>
-          <Sym_Planar_Flag Value="2.000000" ID="ATUTZVFMEMX"/>
-          <Sym_Rot_N Value="3.000000" ID="IBAUPMLHZBB"/>
+          <Sym_Planar_Flag Value="0.000000" ID="ATUTZVFMEMX"/>
+          <Sym_Rot_N Value="2.000000" ID="IBAUPMLHZBB"/>
         </Sym>
         <WingGeom>
           <RelativeDihedralFlag Value="0.000000" ID="XXMMDYYOYJQ"/>
           <RelativeTwistFlag Value="0.000000" ID="XAMFHQKDUOU"/>
           <RotateAirfoilMatchDideralFlag Value="0.000000" ID="LZOHKSNOEFX"/>
-          <TotalArea Value="0.066635" ID="XAYNIBURLWC"/>
-          <TotalProjectedSpan Value="1.066159" ID="IUCFPPTCIZQ"/>
-          <TotalSpan Value="1.066159" ID="AUALTFIHYHE"/>
+          <TotalArea Value="0.156250" ID="XAYNIBURLWC"/>
+          <TotalProjectedSpan Value="2.500000" ID="IUCFPPTCIZQ"/>
+          <TotalSpan Value="2.500000" ID="AUALTFIHYHE"/>
           <m_TotalChord Value="0.062500" ID="SMTOHFDLGTG"/>
         </WingGeom>
         <XForm>
@@ -1866,9 +1866,9 @@
           <Scale Value="1.000000" ID="JPRKEZZBOCS"/>
           <X_Location Value="5.428571" ID="ETGIDKFQNVE"/>
           <X_Rel_Location Value="1.428571" ID="KYBLWEHAIHM"/>
-          <X_Rel_Rotation Value="0.000000" ID="ZIFMCAREZNI"/>
-          <X_Rotation Value="0.000000" ID="HPNWMKVUQOE"/>
-          <Y_Location Value="3.700000" ID="MTJWLBKLIXI"/>
+          <X_Rel_Rotation Value="49.000000" ID="ZIFMCAREZNI"/>
+          <X_Rotation Value="19.000000" ID="HPNWMKVUQOE"/>
+          <Y_Location Value="4.500000" ID="MTJWLBKLIXI"/>
           <Y_Rel_Location Value="0.000000" ID="MZMPHXPZEWG"/>
           <Y_Rel_Rotation Value="-10.000000" ID="MBIFAEYYTAV"/>
           <Y_Rotation Value="-10.000000" ID="IGBKOPMNYOV"/>
@@ -1966,15 +1966,15 @@
               <ID>FGLIOLAXVZ</ID>
               <Name>Default</Name>
               <XSec>
-                <Area Value="0.033317" ID="SODRCFMEZSU"/>
-                <Aspect Value="8.529272" ID="HQKDFXDNTDZ"/>
+                <Area Value="0.078125" ID="SODRCFMEZSU"/>
+                <Aspect Value="19.999991" ID="HQKDFXDNTDZ"/>
                 <Avg_Chord Value="0.062500" ID="BXQKKSCEDMV"/>
                 <Dihedral Value="0.000000" ID="HRQRXBWRRFN"/>
                 <Root_Chord Value="0.075000" ID="XHXYQMKBVEA"/>
-                <Sec_Sweep Value="-2.282757" ID="XUGIVREHZGB"/>
+                <Sec_Sweep Value="-0.973935" ID="XUGIVREHZGB"/>
                 <Sec_Sweep_Location Value="1.000000" ID="JBHDVGPEMBA"/>
                 <SectTess_U Value="6.000000" ID="CNYALHCXBYD"/>
-                <Span Value="0.533080" ID="YNLXZAQXCWM"/>
+                <Span Value="1.250000" ID="YNLXZAQXCWM"/>
                 <Sweep Value="0.000000" ID="IKZBBSFETZV"/>
                 <Sweep_Location Value="0.150000" ID="DCPAKOEFFGU"/>
                 <Taper Value="0.666667" ID="VPLENFVLPPE"/>
@@ -2630,7 +2630,7 @@
           <X_Len Value="2.568182" ID="DZEDOLQHVGW"/>
           <X_Min Value="-0.760870" ID="MWYYHGTWSBY"/>
           <Y_Len Value="0.676787" ID="QHQPZZTBFZA"/>
-          <Y_Min Value="3.361607" ID="LRBWEJGGRCJ"/>
+          <Y_Min Value="4.161606" ID="LRBWEJGGRCJ"/>
           <Z_Len Value="0.742407" ID="WFUOEAPTHVE"/>
           <Z_Min Value="-0.697291" ID="TQHJARBIRBG"/>
         </BBox>
@@ -2671,8 +2671,8 @@
           <X_Rel_Location Value="-0.760870" ID="VCOAXBETDLO"/>
           <X_Rel_Rotation Value="0.000000" ID="KQHIZLNULLE"/>
           <X_Rotation Value="0.000000" ID="DTYOPKGSEEG"/>
-          <Y_Location Value="3.700000" ID="OZYBQPRSSSV"/>
-          <Y_Rel_Location Value="3.700000" ID="GOHSPGNXJKD"/>
+          <Y_Location Value="4.500000" ID="OZYBQPRSSSV"/>
+          <Y_Rel_Location Value="4.500000" ID="GOHSPGNXJKD"/>
           <Y_Rel_Rotation Value="0.000000" ID="BBVAPAZULFB"/>
           <Y_Rotation Value="0.000000" ID="XYBIYWAJGOJ"/>
           <Z_Location Value="-0.326087" ID="WPBQLRWTSHE"/>
@@ -3237,7 +3237,7 @@
           <X_Len Value="5.454545" ID="MKHBUVNYGWQ"/>
           <X_Min Value="0.000000" ID="TMVZNVXAIQN"/>
           <Y_Len Value="0.100000" ID="HWFCAZBFXBY"/>
-          <Y_Min Value="3.650000" ID="ULNIXCONJTU"/>
+          <Y_Min Value="4.450000" ID="ULNIXCONJTU"/>
           <Z_Len Value="0.100000" ID="VSPQBUWZTUD"/>
           <Z_Min Value="-0.050000" ID="RJJJJEDFGEQ"/>
         </BBox>
@@ -3278,8 +3278,8 @@
           <X_Rel_Location Value="0.000000" ID="JOWMGOPTIAL"/>
           <X_Rel_Rotation Value="0.000000" ID="POLQMXPDSRK"/>
           <X_Rotation Value="0.000000" ID="GRCMQQWVDZI"/>
-          <Y_Location Value="3.700000" ID="OLTDFPKWZKE"/>
-          <Y_Rel_Location Value="3.700000" ID="DCVUZSSSFTM"/>
+          <Y_Location Value="4.500000" ID="OLTDFPKWZKE"/>
+          <Y_Rel_Location Value="4.500000" ID="DCVUZSSSFTM"/>
           <Y_Rel_Rotation Value="0.000000" ID="EDUSSEVJKXP"/>
           <Y_Rotation Value="0.000000" ID="PJEGQVSLLCN"/>
           <Z_Location Value="0.000000" ID="JIZCEDHWLZP"/>
@@ -3740,8 +3740,8 @@
         <BBox>
           <X_Len Value="0.760870" ID="XAYOJEBKKFD"/>
           <X_Min Value="4.000000" ID="LNKCBGROWDC"/>
-          <Y_Len Value="7.483554" ID="QUKQAELURDH"/>
-          <Y_Min Value="-3.741777" ID="KWUPOYLRIGP"/>
+          <Y_Len Value="9.083554" ID="QUKQAELURDH"/>
+          <Y_Min Value="-4.541777" ID="KWUPOYLRIGP"/>
           <Z_Len Value="0.806969" ID="ECKSPATYPPM"/>
           <Z_Min Value="-0.738118" ID="VLAGMFGBUYR"/>
         </BBox>
@@ -3787,8 +3787,8 @@
           <X_Rel_Location Value="4.000000" ID="SPMWPYNDXPZ"/>
           <X_Rel_Rotation Value="-30.000000" ID="ZGKZMQPZZZO"/>
           <X_Rotation Value="-30.000000" ID="XOCXQYIWQQM"/>
-          <Y_Location Value="-3.700000" ID="IHVOUCPAMVG"/>
-          <Y_Rel_Location Value="-3.700000" ID="PCAYFEVGCVQ"/>
+          <Y_Location Value="-4.500000" ID="IHVOUCPAMVG"/>
+          <Y_Rel_Location Value="-4.500000" ID="PCAYFEVGCVQ"/>
           <Y_Rel_Rotation Value="0.000000" ID="XPUPJFLRWQH"/>
           <Y_Rotation Value="0.000000" ID="YMDSYMTVLKJ"/>
           <Z_Location Value="0.000000" ID="ABESPBZVAZJ"/>
@@ -3941,18 +3941,18 @@
         <Name>Prop</Name>
         <Attach>
           <Abs_Rel_Flag Value="1.000000" ID="TRPCDXRTRED"/>
-          <Rots_Attach_Flag Value="0.000000" ID="ZMMODCNNPZO"/>
+          <Rots_Attach_Flag Value="1.000000" ID="ZMMODCNNPZO"/>
           <Trans_Attach_Flag Value="1.000000" ID="LJUHHAISPXI"/>
           <U_Attach_Location Value="0.000001" ID="ORQGYCVZWXF"/>
           <V_Attach_Location Value="0.000001" ID="EIQSBLOEPSV"/>
         </Attach>
         <BBox>
           <X_Len Value="0.073861" ID="TMGJFRBOYPV"/>
-          <X_Min Value="5.428571" ID="SSHLOQHKKDM"/>
-          <Y_Len Value="1.066159" ID="LLBMSVTERZA"/>
-          <Y_Min Value="-4.233080" ID="YMKPNNWAFTN"/>
-          <Z_Len Value="0.938485" ID="BMPTNDLCHJI"/>
-          <Z_Min Value="-0.472151" ID="MCOQVWCODSS"/>
+          <X_Min Value="5.429000" ID="SSHLOQHKKDM"/>
+          <Y_Len Value="1.621290" ID="LLBMSVTERZA"/>
+          <Y_Min Value="-5.310645" ID="YMKPNNWAFTN"/>
+          <Z_Len Value="1.942083" ID="BMPTNDLCHJI"/>
+          <Z_Min Value="-0.971042" ID="MCOQVWCODSS"/>
         </BBox>
         <Geom>
           <CapUMaxOption Value="1.000000" ID="ZZYNKJLKYSC"/>
@@ -3976,34 +3976,34 @@
         </Shape>
         <Sym>
           <Sym_Axial_Flag Value="8.000000" ID="HIZDGVYVQCX"/>
-          <Sym_Planar_Flag Value="2.000000" ID="QQNXMCXFARY"/>
-          <Sym_Rot_N Value="3.000000" ID="AEVYPWQNLGS"/>
+          <Sym_Planar_Flag Value="0.000000" ID="QQNXMCXFARY"/>
+          <Sym_Rot_N Value="2.000000" ID="AEVYPWQNLGS"/>
         </Sym>
         <WingGeom>
           <RelativeDihedralFlag Value="0.000000" ID="LAYDVAPMHLO"/>
           <RelativeTwistFlag Value="0.000000" ID="YXQBVNLKCXD"/>
           <RotateAirfoilMatchDideralFlag Value="0.000000" ID="MWXFPEAPWSF"/>
-          <TotalArea Value="0.066635" ID="YXLRVWDMDBY"/>
-          <TotalProjectedSpan Value="1.066159" ID="QRCDGWWEXPF"/>
-          <TotalSpan Value="1.066159" ID="UVBCWDSHAZP"/>
+          <TotalArea Value="0.156250" ID="YXLRVWDMDBY"/>
+          <TotalProjectedSpan Value="2.500000" ID="QRCDGWWEXPF"/>
+          <TotalSpan Value="2.500000" ID="UVBCWDSHAZP"/>
           <m_TotalChord Value="0.062500" ID="MDJBLMXOGIZ"/>
         </WingGeom>
         <XForm>
           <Abs_Or_Relitive_flag Value="1.000000" ID="UNDGPXWRKXR"/>
           <Origin Value="0.000000" ID="WTFLJUUQNHA"/>
           <Scale Value="1.000000" ID="YUICVGLLDFO"/>
-          <X_Location Value="5.428571" ID="MNXYFAOXTIZ"/>
-          <X_Rel_Location Value="1.428571" ID="FTUZBUPXBYV"/>
-          <X_Rel_Rotation Value="0.000000" ID="ODPBNNSFUTA"/>
-          <X_Rotation Value="0.000000" ID="HTYIHIHBEHX"/>
-          <Y_Location Value="-3.700000" ID="CLAKPIHOVSF"/>
+          <X_Location Value="5.429000" ID="MNXYFAOXTIZ"/>
+          <X_Rel_Location Value="1.429000" ID="FTUZBUPXBYV"/>
+          <X_Rel_Rotation Value="80.000000" ID="ODPBNNSFUTA"/>
+          <X_Rotation Value="50.000000" ID="HTYIHIHBEHX"/>
+          <Y_Location Value="-4.500000" ID="CLAKPIHOVSF"/>
           <Y_Rel_Location Value="0.000000" ID="CQXFINWJSJU"/>
           <Y_Rel_Rotation Value="-10.000000" ID="GMNVKUIUYZY"/>
           <Y_Rotation Value="-10.000000" ID="ZXMNYHTSJSW"/>
           <Z_Location Value="0.000000" ID="LIPNQLLSMBB"/>
           <Z_Rel_Location Value="0.000000" ID="SYMAQDTEUVT"/>
           <Z_Rel_Rotation Value="0.000000" ID="QGFKDBYLFJX"/>
-          <Z_Rotation Value="0.000000" ID="MANWLWCXXIU"/>
+          <Z_Rotation Value="-0.000000" ID="MANWLWCXXIU"/>
         </XForm>
       </ParmContainer>
       <GeomBase>
@@ -4094,15 +4094,15 @@
               <ID>XLSHHRYJYZ</ID>
               <Name>Default</Name>
               <XSec>
-                <Area Value="0.033317" ID="RUKAOZYXETI"/>
-                <Aspect Value="8.529272" ID="PRYJWFGZYIH"/>
+                <Area Value="0.078125" ID="RUKAOZYXETI"/>
+                <Aspect Value="19.999991" ID="PRYJWFGZYIH"/>
                 <Avg_Chord Value="0.062500" ID="LHKOAFCXMEY"/>
                 <Dihedral Value="0.000000" ID="LEPOJGFDDSW"/>
                 <Root_Chord Value="0.075000" ID="XQXWXZXJWFI"/>
-                <Sec_Sweep Value="-2.282757" ID="CSWWSMNBNSM"/>
+                <Sec_Sweep Value="-0.973935" ID="CSWWSMNBNSM"/>
                 <Sec_Sweep_Location Value="1.000000" ID="EOZFYGXMDEY"/>
                 <SectTess_U Value="6.000000" ID="HZGDOJLCIUX"/>
-                <Span Value="0.533080" ID="LZLQQAUEYNI"/>
+                <Span Value="1.250000" ID="LZLQQAUEYNI"/>
                 <Sweep Value="0.000000" ID="HAGTSUJHAAP"/>
                 <Sweep_Location Value="0.150000" ID="HTRWBULDJZA"/>
                 <Taper Value="0.666667" ID="ZYFEYGZTKPR"/>
@@ -4859,7 +4859,7 @@
         <Name>Prop</Name>
         <Attach>
           <Abs_Rel_Flag Value="1.000000" ID="QDSCAGFPTZH"/>
-          <Rots_Attach_Flag Value="0.000000" ID="CYNSZVEBJCO"/>
+          <Rots_Attach_Flag Value="1.000000" ID="CYNSZVEBJCO"/>
           <Trans_Attach_Flag Value="0.000000" ID="NAJLSKIOWFE"/>
           <U_Attach_Location Value="0.000001" ID="ZNSKOSAYGGJ"/>
           <V_Attach_Location Value="0.000001" ID="WQRZMEGYTGW"/>
@@ -4867,10 +4867,10 @@
         <BBox>
           <X_Len Value="0.073861" ID="XQTQXZKDTUX"/>
           <X_Min Value="5.238095" ID="SNUMTHZLOHS"/>
-          <Y_Len Value="1.066159" ID="VLQSHQRYUYG"/>
-          <Y_Min Value="-0.533080" ID="XUBCBUZRKHK"/>
-          <Z_Len Value="0.938485" ID="OOJQHKGLJYG"/>
-          <Z_Min Value="-0.472151" ID="WCTYTQLRIYG"/>
+          <Y_Len Value="1.094575" ID="VLQSHQRYUYG"/>
+          <Y_Min Value="-0.547288" ID="XUBCBUZRKHK"/>
+          <Z_Len Value="2.273670" ID="OOJQHKGLJYG"/>
+          <Z_Min Value="-1.136835" ID="WCTYTQLRIYG"/>
         </BBox>
         <Geom>
           <CapUMaxOption Value="1.000000" ID="EBBNTNIZCNZ"/>
@@ -4894,16 +4894,16 @@
         </Shape>
         <Sym>
           <Sym_Axial_Flag Value="8.000000" ID="GABEZUTKEGQ"/>
-          <Sym_Planar_Flag Value="2.000000" ID="SFSSWLCZVHL"/>
-          <Sym_Rot_N Value="3.000000" ID="XILJBDUIOHU"/>
+          <Sym_Planar_Flag Value="0.000000" ID="SFSSWLCZVHL"/>
+          <Sym_Rot_N Value="2.000000" ID="XILJBDUIOHU"/>
         </Sym>
         <WingGeom>
           <RelativeDihedralFlag Value="0.000000" ID="QCKMFKMONXP"/>
           <RelativeTwistFlag Value="0.000000" ID="QPMPDLVRJQR"/>
           <RotateAirfoilMatchDideralFlag Value="0.000000" ID="VYZPTWLWFFU"/>
-          <TotalArea Value="0.066635" ID="GTSXKPPMHQF"/>
-          <TotalProjectedSpan Value="1.066159" ID="LBTKKDEDGNW"/>
-          <TotalSpan Value="1.066159" ID="JKPRLPXBGVG"/>
+          <TotalArea Value="0.156250" ID="GTSXKPPMHQF"/>
+          <TotalProjectedSpan Value="2.500000" ID="LBTKKDEDGNW"/>
+          <TotalSpan Value="2.500000" ID="JKPRLPXBGVG"/>
           <m_TotalChord Value="0.062500" ID="VRQXLZZAMSO"/>
         </WingGeom>
         <XForm>
@@ -4912,8 +4912,8 @@
           <Scale Value="1.000000" ID="PKVSOMFCCQK"/>
           <X_Location Value="5.238095" ID="URIOKEBALXW"/>
           <X_Rel_Location Value="5.238095" ID="WOJBHPOJPVE"/>
-          <X_Rel_Rotation Value="0.000000" ID="WQKNOBUYLWQ"/>
-          <X_Rotation Value="0.000000" ID="EDHOSQRHQDY"/>
+          <X_Rel_Rotation Value="-35.000000" ID="WQKNOBUYLWQ"/>
+          <X_Rotation Value="-65.000000" ID="EDHOSQRHQDY"/>
           <Y_Location Value="0.000000" ID="VXZJGOBVXCW"/>
           <Y_Rel_Location Value="0.000000" ID="XUYWZMDISNO"/>
           <Y_Rel_Rotation Value="-10.000000" ID="IWYJYWBOSLD"/>
@@ -5012,15 +5012,15 @@
               <ID>QDFTQRBHXJ</ID>
               <Name>Default</Name>
               <XSec>
-                <Area Value="0.033317" ID="KLGTLCGHOWK"/>
-                <Aspect Value="8.529272" ID="WDNXXZHUZWO"/>
+                <Area Value="0.078125" ID="KLGTLCGHOWK"/>
+                <Aspect Value="19.999991" ID="WDNXXZHUZWO"/>
                 <Avg_Chord Value="0.062500" ID="SGQXUDKWGRG"/>
                 <Dihedral Value="0.000000" ID="HXLJCSVNCSD"/>
                 <Root_Chord Value="0.075000" ID="UHJGDUTUJPA"/>
-                <Sec_Sweep Value="-2.282757" ID="WAAIEPYHYRA"/>
+                <Sec_Sweep Value="-0.973935" ID="WAAIEPYHYRA"/>
                 <Sec_Sweep_Location Value="1.000000" ID="MDUMIKGIFRA"/>
                 <SectTess_U Value="6.000000" ID="GFWPWRMNHIP"/>
-                <Span Value="0.533080" ID="IGVPYZWPJHK"/>
+                <Span Value="1.250000" ID="IGVPYZWPJHK"/>
                 <Sweep Value="0.000000" ID="QNVQJZKCOCC"/>
                 <Sweep_Location Value="0.150000" ID="WRZDFDPWWAZ"/>
                 <Taper Value="0.666667" ID="SCHGCZEHHSF"/>
