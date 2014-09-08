@@ -1,6 +1,7 @@
 \documentclass[]{aiaa-tc}
 
 \usepackage{authblk}
+%\usepackage{subfigmat}
 \usepackage{booktabs}
 \usepackage{hyperref}
 \usepackage{subfig}
@@ -11,6 +12,7 @@
 \usepackage{pdfpages}
 \usepackage{tikz}
 \usepackage{geometry}
+
 
 
 \newcommand{\bigcell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
@@ -231,16 +233,55 @@
 
     \subsection{Aerodynamic Modeling}
 
-    Stanford's SU2 CFD tool, will be used for the aerodynamic analyses of both the wing and 
-    the propellers. SU2 has been successfully applied to the design of propeller systems 
-    and has support for actuator disk boundary conditions that will be needed to implement 
-    the coupled wing­-propeller design process. It has been demonstrated to work in the low 
-    Mach conditions that will be seen by this aircraft. It also provides adjoint derivatives 
-    which are fundamental to the application of state-of-the-art gradient based design 
-    optimization methods. Researchers at Stanford will be responsible for building for developing 
-    the aerodynamic models of the wing and will collaborate with NASA Ames on developing the 
-    propeller models. In addition they will provide support for integrating SU2 into the OpenMDAO 
-    framework. 
+\noindent Over the course of the past 8 years~\cite{Palacios:Adjoint-Based,Choi:2008qf}, our team has developed a comprehensive framework for the aerodynamic shape optimization of arbitrary aircraft configurations that can effectively deal with both aerodynamic performance and stability \& control considerations.  This framework is embodied in the Stanford University Unstructured (SU2) software suite~\cite{palacios2013}, which was developed for the specific task of solving PDE analyses and PDE-constrained optimization problems on arbitrary unstructured meshes. While the framework is general and is meant to be extensible to arbitrary multi-physics problems, the core of the suite is a Reynolds-averaged Navier--Stokes (RANS) solver capable of simulating compressible, turbulent flows (using both the Spalart--Allmaras and SST turbulence models) that are characteristic of typical problems in aerospace engineering. SU$^2$ was constructed with aerodynamic shape optimization problems in mind, and therefore, adjoint-based sensitivity analysis is a key feature that is built directly into the RANS solver.
+
+In particular, the adjoint methodologies that we have included in the SU2 suite enable us to, very rapidly, obtain surface sensitivities of cost / constraint functions related to the solution of the CFD problem with respect to an arbitrary number of parameters.  In fact, the sensitivity formulation in SU2, which will be leveraged by the OpenMDAO framework, is based on a surface formulation that bypasses the need to perturb the volume mesh during the process of computing the individual adjoint-based gradients, resulting in a great reduction in the overall cost of the sensitivity procedure, and imposing no limitations on the number of design parameters that an optimization problem might include.
+
+%
+As can be seen in Fig.~\ref{fig:sketch}, the fluid domain $\Omega$ is bounded by a disconnected boundary $\delta \Omega$ that is divided into a ``far-field'' component, $\Gamma_\infty$, and a solid wall boundary, $S$. $\Omega$ has been further divided into two subdomains $\Omega_i$ and $\Omega_o$ separated by the ``near-field'' boundary $\Gamma_{nf}$. Note that $\Gamma_{nf}$ remains fixed throughout the optimization process, but the solid surface $S$ changes as needed to meet the optimization criteria.  The fact that we highlight the near-field boundary in the formulation is simply so that it is clear that the formulation can be extended to include surface integrals over arbitrary surfaces contained in the domain, which do not necessarily coincide with the surface of the aircraft.  This is the case, for example, when supersonic boom functions are differentiated, as is the case in supersonic aircraft design, the problem we use to illustrate the features of SU2.
+%
+\begin{figure}
+  \begin{center}
+	\includegraphics[bb = 0 0 720 378,width=0.56\textwidth]{images/sketch.jpg}
+	\caption{Schematic view of the configuration with near-field and far-field boundaries.}\label{fig:sketch}
+  \end{center}
+\end{figure}
+%
+%
+A typical optimization problem seeks the minimization of a certain cost function $J$ with respect to changes in the shape of the boundary $S$. We focus on functionals defined as integrals over the solid surface $S$, and integrals over the near-field boundary $\Gamma_{nf}$,
+\begin{equation}
+J =\int_S{\vec d \cdot (P \vec n_S)\,ds}+\int_{\Gamma_{nf}}{g(x,P)\,ds} = \int_S{j_S\,ds}+\int_{\Gamma_{nf}}{j_{nf}\,ds},
+\end{equation}
+where $P$ is the value of the pressure, $\vec n_S$ is a normal vector to the solid surface $S$ pointing outside the domain, $g(x, P)$ is a function that depends on the spatial coordinates and the pressure at the near-field, and $\vec d$ is an arbitrary constant vector. We stress that this formulation has been shown to enable all of the tasks that we have encountered in aircraft design, including, for example, supersonic aerodynamic and low-boom design, using equivalent area distributions. The goal is to efficiently compute the variation of the above functional caused by arbitrary (and multiple) deformations of $S$.
+%
+Upon an infinitesimal deformation $\delta S$ of the control surface $S$ along the normal direction $\vec n_S$, the cost function varies due to the changes in the solution induced by the deformation:
+\begin{eqnarray} \label{objvar}
+\delta J &=&  \int_S{\vec d \cdot \delta P \vec n_S \,ds} + \int_{\Gamma_{nf}}{\frac{\partial g(x,P)}{\partial P}\delta P\,ds}  + \int_{S}{(\vec d\cdot\vec\nabla P )\delta S \,ds}.
+\end{eqnarray}
+%
+In the last expression we note that the objective function variation depends on the linearized steady RANS flow equations, $\vec\nabla \cdot (\vec \delta F) = 0$, where $\vec F$ are the convective and viscous fluxes. We resort to the adjoint state $\Psi =(\psi_1, \vec \varphi, \psi_5 )$ to tackle the variation of the flow variables $\delta P$ in the objective function:
+\begin{eqnarray}
+\delta J &=&\int_S{(\vec d \cdot \vec n_S)\delta P  \,ds} - \int_{S}{(\vec n_S\cdot\vec \varphi) \delta P\,ds} + \int_{\Gamma_{nf}}{\frac{\partial g(x,P)}{\partial P}\delta P\,ds}  -  \int_{\Gamma_{nf}}{\Delta \Psi \left(\vec n_{nf} \vec A\right)\delta U\,ds} \nonumber \\
+&+& \int_{S}{\left(\vec d\cdot\vec\nabla P + (\partial_n \vec v\cdot \vec n_S)\,\vartheta+\nabla_S(\vec v \,\vartheta )\right)\delta S\,ds},
+\end{eqnarray}
+where $\Delta \Psi = \Psi_i-\Psi_o$ is the difference between the values of $\Psi$ above and below the near-field boundary, $\vec A$ is the Jacobian matrix of the fluxes, and $\vartheta = (\rho \psi_1+\rho\vec v\cdot \vec\varphi+\rho H\psi_5)$. Finally, the following adjoint system should be solved
+\begin{equation}
+\vec A^T  \cdot \vec \nabla \Psi= 0.
+\end{equation}
+where the appropriate boundary equations are included for all boundaries, including those that are used to represent the propulsion system effects.  In previous work~\cite{Palacios:Adjoint-Based} we have also shown how this methodology can be extended to treat functionals of the equivalent area distribution of a full aircraft computed with detailed CFD.
+
+Our work in SU$^2$ has been released under an open-source license, and it is freely available to the community, so that developers around the world can continue to verify, validate, contribute to the source code, and further improve the accuracy and capabilities of the suite. This open-release policy make SU2 ideally suited to interface with other open-source tools in the work propose here.  The RANS capabilities in SU$^2$ have been carefully validated with a number of different test cases~\cite{SU2:Scitech2014}, and have been used extensively for the calculation of flows over supersonic aircraft configurations during the NASA N+2 and Low-Boom Flight Demonstrator programs.  Fig.~\ref{fig:lbfd} below shows some recent analyses and optimizations completed with SU$^2$ that are representative of the configurations that will be analyzed in the proposed work.
+%
+\begin{figure}[h]
+\parbox{\textwidth}{
+\parbox{8.0cm}{\includegraphics[width=8.0cm]{images/lbfd1} \\ Result of baseline analysis and optimization for low-boom flight demonstrator concept.}\hfill\parbox{8.0cm}{\includegraphics[width=8.0cm]{images/lbfd2} \\ Surface sensitivity map for equivalent area distribution.}}
+\caption{Sample SU$^2$ RANS calculations and design optimizations for a low-boom flight demonstrator concept, as well as surface sensitivity maps for a function of the aircraft equivalent area distribution.}
+\label{fig:lbfd}
+\end{figure}
+
+Given the success of our existing methods, and for purposes of this NASA LEARN effort, we consider the capabilities of the SU$^2$ framework to be sufficient as they currently exist, and no further improvements are necessary to be able to deal with aerodynamic performance and sonic-boom prediction.  This shape optimization capability, however, must now work in concert with both the ability to reduce airport jet noise below acceptable levels, and the aerostructural analysis of advanced concepts.  These additional interactions must be accounted for in the development of system-level sensitivities and a majority of the effort in this section will be directed towards the enabling of multidisciplinary capabilities in the SU$^2$ framework.  As discussed in the previous section using the example of an aerostructural optimization approach, the majority of the effort envisioned during Phase I will include the development of all necessary sensitivities and partial derivatives that are required to couple SU$^2$ with the TACS solver and its adjoint.
+
+In order to interact, in a design optimization setting, with the reduced-order models of the acoustics of the jet exhaust, we also envision the need to enhance the capabilities of the SU$^2$ framework so that coupled sensitivities that describe the changes in jet noise resulting from variations in the aerodynamic shape (through shielding and scattering) are properly accounted for.  Using the adjoint capabilities included in SU$^2$, which also provides a linearized solver for the RANS equations, together with coupled sensitivity analysis ideas, we believe it is possible to obtain the required sensitivities for integrated design optimization.
 
     \subsubsection{Propeller Analysis}
         \begin{itemize}
@@ -249,7 +290,7 @@
             CCBlade is a good option. 
         \end{itemize}
 
-    \subsubsection{Wing \& Fueselage Analysis (Stanford)}
+    \subsubsection{Wing \& Fuselage Analysis (Stanford)}
         \begin{itemize}
             \item Laminar flow is a key design requirement for both the wing and the pilot fairings. An inverse design approach can be employed 
             by specifying a desired pressure distribution. 
@@ -261,6 +302,17 @@
             \item SU2 actuator disks for coupling
         \end{itemize}
 
+    Stanford's SU2 CFD tool, will be used for the aerodynamic analyses of both the wing and 
+    the propellers. SU2 has been successfully applied to the design of propeller systems 
+    and has support for actuator disk boundary conditions that will be needed to implement 
+    the coupled wing­-propeller design process. It has been demonstrated to work in the low 
+    Mach conditions that will be seen by this aircraft. It also provides adjoint derivatives 
+    which are fundamental to the application of state-of-the-art gradient based design 
+    optimization methods. Researchers at Stanford will be responsible for building for developing 
+    the aerodynamic models of the wing and will collaborate with NASA Ames on developing the 
+    propeller models. In addition they will provide support for integrating SU2 into the OpenMDAO 
+    framework. 
+    
         \subsection{Structural Modeling}
 
 The modeling and design of slender lightweight flexible structures for
