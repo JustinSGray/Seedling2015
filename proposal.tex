@@ -225,9 +225,9 @@
 
     By using the OpenMDAO framework, the modeling methods will be built in a modular fashion that will allow a wide range of
     different analysis tools to be used. This will help extend the applications of the work to other types of aircraft beyond the 
-    initial human powered aircraft. 
+    initial human powered aircraft and will make extension to HALE applications in year 2 strait forward. 
 
-During the process of setting up the entire framework for the high-fidelity design of the human-powered vehicle, it might become necessary to resort to hierarchical decomposition schemes, such as Collaborative Optimization (CO), where the overall design problem is decomposed into a number of optimization subproblems coordinated by system-level optimizer.  Such hierarchical optimization architectures can greatly decrease the cost of the overall optimization problem and, furthermore, can enable the computation of performance measures and their sensitivities, in each participating discipline, to proceed along in parallel, thus decreasing the overall clock time required to carry out a design.  Given that all the high-fidelity modules will become part of the OpenMDAO environment, it becomes straightforward to re-organize the design problem in a manner that renders it tractable.  Such system-level optimization approaches will be tried under the leadership of NASA Glenn Research Center and with participation from Stanford University. (**** Add a task for this?  Something like: "Hierarchical Decomposition Schemes for High-Fidelity Optimization"? ****)
+    % During the process of setting up the entire framework for the high-fidelity design of the human-powered vehicle, it might become necessary to resort to hierarchical decomposition schemes, such as Collaborative Optimization (CO), where the overall design problem is decomposed into a number of optimization subproblems coordinated by system-level optimizer.  Such hierarchical optimization architectures can greatly decrease the cost of the overall optimization problem and, furthermore, can enable the computation of performance measures and their sensitivities, in each participating discipline, to proceed along in parallel, thus decreasing the overall clock time required to carry out a design.  Given that all the high-fidelity modules will become part of the OpenMDAO environment, it becomes straightforward to re-organize the design problem in a manner that renders it tractable.  Such system-level optimization approaches will be tried under the leadership of NASA Glenn Research Center and with participation from Stanford University. (**** Add a task for this?  Something like: "Hierarchical Decomposition Schemes for High-Fidelity Optimization"? ****)
 
 
     \subsection{Aerodynamic Modeling}
@@ -280,15 +280,27 @@ Our work in SU$^2$ has been released under an open-source license, and it is fre
 
 Given the success of our existing methods, and for purposes of this Seedling effort, we consider the capabilities of the SU$^2$ framework to be sufficient as they currently exist, and no further improvements are necessary to be able to deal with aerodynamic performance and stability \& control predictions.  This shape optimization capability, however, must now work in concert with the aero-structural analysis of our advanced concepts.  These additional interactions must be accounted for in the development of system-level sensitivities and a majority of the effort in this section will be directed towards the enabling of multidisciplinary capabilities in the SU$^2$ framework.  As discussed later in this proposal using the example of an aerostructural optimization, the majority of the SU2 effort envisioned during Phase I will include the development of all necessary sensitivities and partial derivatives that are required to couple SU2 with the TACS solver and its adjoint, should that task become necessary.
 
-    \subsubsection{Propeller Analysis (Stanford)}
+    \subsubsection{Propeller Analysis}
     
     For the analysis and design of the propellers in our vehicle, we intend to use a multi-fidelity approach that relies on a hierarchy of two separate solution (analysis and optimization) procedures: a low-fidelity and a high-fidelity approaches.
     
-    In particular, we intend to use the low-fidelity propeller analysis and design module in the SUave (Stanford University aerospace vehicle environment) environment, which is based on the work of Adkins \& Liebeck~\cite{Adkins:Design}.  These methods use airfoil drag polar data at various Reynolds and Mach numbers and construct the optimal propeller shape (chord and twist distribution) that result in a minimum induced loss design.  Using these procedures, propellers can be sized and optimized very rapidly and sensitivities of the optimum performance can be obtained and interfaced with OpenMDAO for further analysis.
+    Two options are being considered for the lower fidelity propeller analytsis. One option is the low-fidelity propeller analysis and design module in the SUave (Stanford University aerospace vehicle environment) environment, which is based on the work of Adkins \& Liebeck~\cite{Adkins:Design}.  A second option is Ning's blade element momentum based method designed specifically for use with optimization, 
+    CCBlade\cite{NING:BEM}. 
+
+    These methods use airfoil drag polar data at various Reynolds and Mach numbers and construct the optimal propeller shape (chord and twist distribution) that result in a minimum induced loss design. Airfoil drag polar data will be generated using XFOIL, which provides rapid and accurate models for 2D airfoil performance. 
+    Using these procedures, propellers can be sized and optimized very rapidly and sensitivities of the optimum performance can be obtained and interfaced with OpenMDAO for further analysis.
     
     In addition, and while the low-fidelity model is expected to be relatively accurate if sufficient drag polar data is provided, to resolve higher-fidelity effects we will also leverage SU2.  SU2 is able to solve (and provide sensitivities) for computations performed in a rotating coordinate frame, as would be the case for an isolated propeller.  In such a frame of reference, the problem is rendered steady, and the same methodologies described earlier and contained within SU2 can be used to analyze and optimize a design.
 
-The combination of these two models of different fidelities will be accomplished using an additive correction anchored on the results of the low-fidelity model.  The additive correction can be computed across the entire design space using the smallest possible number of evaluations of the high-fidelity model (and possibly gradients) and fitted using Gaussian Process Regression.  The part of our team at Stanford University already has significant experience with this methodology and will leverage existing libraries to carry out this work.
+    The combination of these two models of different fidelities will be accomplished using an additive correction anchored on the results of the low-fidelity model.  The additive correction can be computed across the entire design space using the smallest possible number of evaluations of the high-fidelity model (and possibly gradients) and fitted using Gaussian Process Regression.  The part of our team at Stanford University already has significant experience with this methodology and will leverage existing libraries to carry out this work.
+
+    The propeller design will be performed as part of the overall aircraft design optimization. RPM, radius, twist and chord distribution, and 
+    physical location will all be considered as design variables. Using the combination of low and high fidelity analyses, the propeller 
+    effects on the airframe and vice versa will be considered. Propulsive loads on the airframe will be modeled, and aerodynamic affects of the
+    airframe on the propeller will also be accounted for. 
+
+
+
 
     \subsubsection{Wing, Fuselage \& Empennage Analysis (Stanford)}
     
@@ -303,10 +315,8 @@ Given that both SU2 and TriPan are able to provide sensitivity information at re
 
 Note that the extent of laminar flow is a fundamental design requirement to attain the required level of performance.  For this purpose, and so that transition can be captured accurately for these configurations, we will use the model of Langtry and Menter~\cite{Langtry:Correlation} that has already been implemented in SU2.  Using such models we can have a reasonable expectation of capturing the effects of transition and laminar flow across the entire configuration.  
 
-    \subsubsection{Wing-Propeller Coupling (NASA Glenn/Stanford)}
-        \begin{itemize}
-            \item SU2 actuator disks for coupling
-        \end{itemize}
+    \subsubsection{Wing-Propeller Coupling}
+        
 
     As mentioned earlier, SU2 has been successfully applied to the design of propeller and wind turbine systems 
     and already has preliminary support for actuator disk boundary conditions that will be needed to implement 
@@ -845,7 +855,6 @@ optimization.
   \bibliography{references}
 
   \appendix
-
   \clearpage
   \centerline{\huge{\textbf{Appendix}}}
 
@@ -859,7 +868,11 @@ optimization.
 
   \section{Letters of Collaboration}
 
-  
+    \newgeometry{left=0cm,bottom=0cm,top=0cm,right=0cm}
+    \includepdf[scale=1., pages={1}]{letters_of_commitment/aero_velo.pdf}
+    \includepdf[scale=1., pages={1}]{letters_of_commitment/stanford.pdf}
+    \restoregeometry
+
 
   \section{Resumes \& Qualifications}
 
