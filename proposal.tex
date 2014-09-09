@@ -149,35 +149,54 @@
 
     During Phase I of this effort, the analysis tools and coupled design environment will be built and 
     the detailed design of the Marathon aircraft will be completed. In addition, sub-scale testing will be 
-    performed to validate structural models and construction techniques. During phase II, two 
-    parallel efforts will be pursued. First the aircraft will be built, tested, and flown to attempt the Kremer Marathon Challenge. 
-    The aircraft will be used as a flying test bed to collect further structural and aerodynamic validation data as well 
-    as additional data on flight handling characteristics and overall performance. All the data collected, 
-    models generated, and the final detailed design are intended to be released publicly under an open-source license
-    upon completion of the challenge. Second, additional research will be conducted to extend the design tools to 
-    for the design of a HALE atmospheric satellite UAV. This additional design effort will leverage all of the experience 
+    performed to validate structural models and construction techniques. During phase II, the aircraft will be built, 
+    tested, and flown to attempt the Kremer Marathon Challenge. The aircraft will be used as a flying 
+    test bed to collect further structural and aerodynamic validation data as well as additional data on 
+    flight handling characteristics and overall performance. All the data collected, 
+    models generated, and the final detailed design will be released publicly under an open-source license
+    continuously throughout the whole effort. Additionally, in phase II, research will be conducted to extend the design tools to 
+    a HALE atmospheric satellite UAV application. This additional design effort will leverage all of the experience 
     gained from working on the human powered vehicle and move the work further toward more direct commercial applications.
     In particular, the ability to utilize the tools and integration methods developed and to include the stability and
     control requirements for aircraft whose flight altitudes can vary widely (from as low as 10-12 Km to as high as 28 Km
-    in altitude) will be required to tackle such designs.  Moreover, these aircraft are designed, from the ground up, to
-    be highly (if not completely) autonomous.  The proposed Phase II effort will incorporate these concepts of autonomy in
-    our multi-disciplinary design environment, providing a valuable test case and database for future efforts in
-    autonomous aircraft design within NASA. To better quantify the benefits of a tightly coupled optimization,
-    two drones will be tested and flown over the course of the second year. The first UAV will be derived from
-    pre-existing span-loaded prototypes from NASA Ames, and serve as a baseline for performance benchmarks.
-    Starting from this baseline, the second UAV will be optimized using the developed multi-disciplinary approach.
-    Flight data from the second aircraft will then be used to validate our toolset's ability to predict
-    performance increases between the optimized and baseline models.
-    This work will leverage NASA Ames' rapid prototyping capabilities and previous drone manufacturing experience.
-    Figure \ref{fig:AmesUAV} depicts a few proof-of-concept models composed of RQ-14 DragonEye parts, that were retro-fitted
-    as span-loaded scientific HALE vehicles. The resources from this previous effort comprise a library of modular parts,
-    giving Ames the foundation necessary to build, certify, and fly prototypes in under three months.
+    in altitude) will be required to tackle such designs.  
+
+
+  \section{Objectives and Technical Approach}
+
+    The overall objective of this work is to design, test, and fly a human powered aircraft, 
+    capable of flying 26.1 miles in under 1 hour using state-of-the-art multidisciplinary 
+    design optimization techniques. In order to make this happen, we will develop a novel integrated 
+    design environment, based on a collection tools with analytic gradients (OpenMDAO, SU2, SUave 
+    modules, TACS, and TriPan) that can result in optimal aircraft designs with a degree of confidence far beyond 
+    what is typical of conceptual tools. While during this work the design environment will be used in the 
+    context of a human-powered aircraft,  the intent is to ensure that the methods will continue to be used 
+    for advanced, low-fuel consumption aircraft concepts of interest to NASA.  The specific design that we will 
+    pursue will be performed with fully-coupled aerodynamic, non-linear structural, and propeller models. Applying 
+    multidisciplinary optimization directly embeded into an aircraft design process, from conceptual all the 
+    way to detailed design, provides a unique opportunity to develop methods and validate
+    the results within a vary small time frame and for a very low cost. 
+
+    Phase I of the work will focus on the design of the aircraft and the modeling environment used 
+    to generate it. NASA Glenn Research Center, NASA Ames Research Center, Stanford, and 
+    the Georgia Institute of Technology will be responsible for collaboratively developing the 
+    propulsion, aerodynamic, and structural analysis models needed as well as integrating 
+    them together to perform the coupled analysis. AeroVelo will
+    use the models to perform the conceptual, preliminary, and detailed design of the actual marathon 
+    aircraft in very close collaboration with the other partners. NASA Glenn Research Center, NASA Armstrong Flight Research Center, 
+    The Georgia Institute of Technology, and AeroVelo will all collaborate on a set of structural validation 
+    tests designed to validate the tool sets and construction methods needed for the aircraft.  Stanford 
+    University will be responsible for the aerodynamic modeling portions of the work, as well as 
+    help with the integration of tools and the overall organization of the multidisciplinary design 
+    procedure that will be used for this work.
+
 
     \begin{figure}[!hbt]
+        \centering
         \subfloat[Twin-fuselage Chimera UAV]{
             \centering
             \label{fig:chimera}
-            \includegraphics[width=\textwidth]{images/drone2}}
+            \includegraphics[width=.7\textwidth]{images/drone2}}
             
         \subfloat[FrankenEye UAV]{
             \centering
@@ -190,33 +209,28 @@
             
     \end{figure}
 
-  \section{Objectives and Technical Approach}
+    In phase II of the work, two simultaneous efforts will be undertaken. AeroVelo will do additional component level testing 
+    and validation work for the design, then undertake construction and flight testing of the human powered airplane. 
+    The flight testing, to be performed at Armstrong Flight Research Center, will be used to provide more validation 
+    data to support the modeling efforts as well as new data on the flight dynamics and handling characteristics of
+    this type of aircraft. In parallel to the construction and flight testing, the team will work on extending the 
+    models and experience gained from the human powered vehicle to the design of a new HALE atmospheric satellite 
+    design. These aircraft are designed, from the ground up, to be highly (if not completely) autonomous.  
+    So the autonomy will be brought in as a new discipline into our multi-disciplinary design environment, 
+    providing a valuable test case and database for future efforts in autonomous aircraft design within NASA. 
+    To better quantify the benefits of a tightly coupled optimization,
+    two drones will be tested and flown over the course of the second year. The first UAV will be derived from
+    pre-existing span-loaded prototypes from NASA Ames, and serve as a baseline for performance benchmarks.
+    Starting from this baseline, the second UAV will be optimized using the developed multi-disciplinary approach.
+    Flight data from the second aircraft will then be used to validate our toolset's ability to predict
+    performance increases between the optimized and baseline models.
+    This work will leverage NASA Ames' rapid prototyping capabilities and previous drone manufacturing experience.
+    Figure \ref{fig:AmesUAV} depicts a few proof-of-concept models composed of RQ-14 DragonEye parts, that were retro-fitted
+    as span-loaded scientific HALE vehicles. The resources from this previous effort comprise a library of modular parts,
+    giving Ames the foundation necessary to build, certify, and fly prototypes in under three months.
 
-    The overall objective of this work is to design, test, and fly a human powered aircraft, 
-    capable of flying 26.1 miles in under 1 hour using state-of-the-art multidisciplinary 
-    design optimization techniques. In order to make this happen, we will also develop a novel integrated 
-    design environment, based on a collection tools with analytic gradients (OpenMDAO, SU2, SUave 
-    modules, TACS, etc.) that can result in optimal aircraft designs with a degree of confidence far beyond 
-    what is typical of conceptual tools.   While during this work the design environment will be used in the 
-    context of a human-powered aircraft,  the intent is to ensure that the methods will continue to be used 
-    for advanced, low-fuel consumption aircraft concepts of interest to NASA.  The specific design that we will 
-    pursue will be performed with fully-coupled aerodynamic, non-linear structural, and propeller models. Working 
-    in the context of a full aircraft design process, from conceptual all the way to detailed design, 
-    provides a unique opportunity to apply multidisciplinary optimization methods and validate
-    the results within a vary small time frame. 
+  
 
-    Phase I of the work will focus on the design of the aircraft and the design environment used 
-    to accomplish this goal. NASA Glenn Research Center, 
-    NASA Ames Research Center, Stanford, and the Georgia Institute of Technology will be responsible 
-    for collaboratively developing the propulsion, aerodynamic, and structural analysis 
-    models needed as well as integrating them together to perform the coupled analysis. AeroVelo will
-    use the models to perform the conceptual, preliminary, and detailed design of the actual marathon 
-    aircraft in very close collaboration with the other partners. NASA Glenn Research Center, NASA Armstrong Flight Research Center, 
-    The Georgia Institute of Technology, and AeroVelo will all collaborate on a set of structural validation 
-    tests designed to validate the tool sets and construction methods needed for the aircraft.  Stanford 
-    University will be responsible for the aerodynamic modeling portions of the work, as well as 
-    help with the integration of tools and the overall organization of the multidisciplinary design 
-    procedure that will be used for this work.
 
     \subsection{Model Integration}
 
